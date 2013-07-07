@@ -53,6 +53,13 @@ use ZfrMailChimp\Version;
  * @method Model deleteOrder(array $args = array()) {@command MailChimp DeleteOrder}
  * @method Model getOrders(array $args = array()) {@command MailChimp GetOrders}
  *
+ * FOLDER RELATED METHODS:
+ *
+ * @method Model addFolder(array $args = array()) {@command MailChimp AddFolder}
+ * @method Model deleteFolder(array $args = array()) {@command MailChimp DeleteFolder}
+ * @method Model getFolders(array $args = array()) {@command MailChimp GetFolders}
+ * @method Model updateFolders(array $args = array()) {@command MailChimp UpdateFolders}
+ *
  * @author Michaël Gallego
  * @licence MIT
  */

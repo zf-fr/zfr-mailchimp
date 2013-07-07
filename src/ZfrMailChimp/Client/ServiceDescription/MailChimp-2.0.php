@@ -717,6 +717,130 @@ return array(
                     'required'    => false
                 ),
             )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
+         * FOLDERS RELATED OPERATIONS
+         * --------------------------------------------------------------------------------
+         */
+
+        'AddFolder' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'folders/add.json',
+            'summary'          => 'Add a new folder to file campaigns, autoresponders, or templates',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/add.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'name' => array(
+                    'description' => 'A unique name for a folder (max 100 bytes)',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'type' => array(
+                    'description' => 'The type of folder to create - one of "campaign", "autoresponder", or "template"',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'enum'        => array('campaign', 'autoresponder', 'template')
+                )
+            )
+        ),
+
+        'DeleteFolder' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'folders/del.json',
+            'summary'          => 'Delete a campaign, autoresponder, or template folder',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'folder_id' => array(
+                    'description' => 'The folder id to delete',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'sentAs'      => 'fid',
+                    'required'    => true
+                ),
+                'type' => array(
+                    'description' => 'The type of folder to delete - one of "campaign", "autoresponder", or "template"',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'enum'        => array('campaign', 'autoresponder', 'template')
+                )
+            )
+        ),
+
+        'GetFolders' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'folders/list.json',
+            'summary'          => 'Get all the folders of a certain type',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/list.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'type' => array(
+                    'description' => 'The type of folder to delete - one of "campaign", "autoresponder", or "template"',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'enum'        => array('campaign', 'autoresponder', 'template')
+                )
+            )
+        ),
+
+        'UpdateFolder' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'folders/update.json',
+            'summary'          => 'Update a single folder of a certain type',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/update.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'folder_id' => array(
+                    'description' => 'The folder id to delete',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'sentAs'      => 'fid',
+                    'required'    => true
+                ),
+                'name' => array(
+                    'description' => 'A unique name for a folder (max 100 bytes)',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'type' => array(
+                    'description' => 'The type of folder to delete - one of "campaign", "autoresponder", or "template"',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'enum'        => array('campaign', 'autoresponder', 'template')
+                )
+            )
         )
     ),
 );
