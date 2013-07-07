@@ -841,6 +841,102 @@ return array(
                     'enum'        => array('campaign', 'autoresponder', 'template')
                 )
             )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
+         * VIP RELATED OPERATIONS
+         * --------------------------------------------------------------------------------
+         */
+
+        'AddVipMembers' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'vip/add.json',
+            'summary'          => 'Add VIPs',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/add.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'emails' => array(
+                    'description' => 'An array of up to 50 email address to add',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true,
+                    'maxItems'    => 50
+                )
+            )
+        ),
+
+        'DeleteVipMembers' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'vip/delete.json',
+            'summary'          => 'Delete VIPs',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'emails' => array(
+                    'description' => 'An array of up to 50 email address to remove',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true,
+                    'maxItems'    => 50
+                )
+            )
+        ),
+
+        'GetVipMembers' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'vip/activity.json',
+            'summary'          => 'Retrieve all VIPs for an account',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/members.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+            )
+        ),
+
+        'GetVipActivity' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'vip/activity.json',
+            'summary'          => 'Retrieve all Activity (opens/clicks) for VIPs over the past 10 days',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/activity.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+            )
         )
     ),
 );

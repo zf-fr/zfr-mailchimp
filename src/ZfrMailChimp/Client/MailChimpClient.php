@@ -28,37 +28,44 @@ use ZfrMailChimp\Version;
  *
  * LIST RELATED METHODS:
  *
- * @method Model addInterestGroup(array $args = array()) {@command MailChimp AddInterestGroup}
- * @method Model addInterestGrouping(array $args = array()) {@command MailChimp AddInterestGrouping}
- * @method Model batchSubscribe(array $args = array()) {@command MailChimp BatchSubscribe}
- * @method Model batchUnsubscribe(array $args = array()) {@command MailChimp BatchUnsubscribe}
- * @method Model deleteInterestGroup(array $args = array()) {@command MailChimp DeleteInterestGroup}
- * @method Model deleteInterestGrouping(array $args = array()) {@command MailChimp DeleteInterestGrouping}
- * @method Model getAbuseReports(array $args = array()) {@command MailChimp GetAbuseReports}
- * @method Model getActivity(array $args = array()) {@command MailChimp GetActivity}
- * @method Model getClients(array $args = array()) {@command MailChimp GetClients}
- * @method Model getGrowthHistory(array $args = array()) {@command MailChimp GetGrowthHistory}
- * @method Model getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
- * @method Model getLists(array $args = array()) {@command MailChimp GetLists}
- * @method Model getLocations(array $args = array()) {@command MailChimp GetLocations}
- * @method Model getMembers(array $args = array()) {@command MailChimp GetMembers}
- * @method Model getMembersActivity(array $args = array()) {@command MailChimp GetMembersActivity}
- * @method Model getMembersInfo(array $args = array()) {@command MailChimp GetMembersInfo}
- * @method Model updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
- * @method Model updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}
+ * @method array addInterestGroup(array $args = array()) {@command MailChimp AddInterestGroup}
+ * @method array addInterestGrouping(array $args = array()) {@command MailChimp AddInterestGrouping}
+ * @method array batchSubscribe(array $args = array()) {@command MailChimp BatchSubscribe}
+ * @method array batchUnsubscribe(array $args = array()) {@command MailChimp BatchUnsubscribe}
+ * @method array deleteInterestGroup(array $args = array()) {@command MailChimp DeleteInterestGroup}
+ * @method array deleteInterestGrouping(array $args = array()) {@command MailChimp DeleteInterestGrouping}
+ * @method array getAbuseReports(array $args = array()) {@command MailChimp GetAbuseReports}
+ * @method array getActivity(array $args = array()) {@command MailChimp GetActivity}
+ * @method array getClients(array $args = array()) {@command MailChimp GetClients}
+ * @method array getGrowthHistory(array $args = array()) {@command MailChimp GetGrowthHistory}
+ * @method array getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
+ * @method array getLists(array $args = array()) {@command MailChimp GetLists}
+ * @method array getLocations(array $args = array()) {@command MailChimp GetLocations}
+ * @method array getMembers(array $args = array()) {@command MailChimp GetMembers}
+ * @method array getMembersActivity(array $args = array()) {@command MailChimp GetMembersActivity}
+ * @method array getMembersInfo(array $args = array()) {@command MailChimp GetMembersInfo}
+ * @method array updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
+ * @method array updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}
  *
  * ECOMM RELATED METHODS:
  *
- * @method Model addOrder(array $args = array()) {@command MailChimp AddOrder}
- * @method Model deleteOrder(array $args = array()) {@command MailChimp DeleteOrder}
- * @method Model getOrders(array $args = array()) {@command MailChimp GetOrders}
+ * @method array addOrder(array $args = array()) {@command MailChimp AddOrder}
+ * @method array deleteOrder(array $args = array()) {@command MailChimp DeleteOrder}
+ * @method array getOrders(array $args = array()) {@command MailChimp GetOrders}
  *
  * FOLDER RELATED METHODS:
  *
- * @method Model addFolder(array $args = array()) {@command MailChimp AddFolder}
- * @method Model deleteFolder(array $args = array()) {@command MailChimp DeleteFolder}
- * @method Model getFolders(array $args = array()) {@command MailChimp GetFolders}
- * @method Model updateFolders(array $args = array()) {@command MailChimp UpdateFolders}
+ * @method array addFolder(array $args = array()) {@command MailChimp AddFolder}
+ * @method array deleteFolder(array $args = array()) {@command MailChimp DeleteFolder}
+ * @method array getFolders(array $args = array()) {@command MailChimp GetFolders}
+ * @method array updateFolders(array $args = array()) {@command MailChimp UpdateFolders}
+ *
+ * VIP RELATED METHODS:
+ *
+ * @method array addVipMembers(array $args = array()) {@command MailChimp AddVipMembers}
+ * @method array deleteVipMembers(array $args = array()) {@command MailChimp DeleteVipMembers}
+ * @method array getVipMembers(array $args = array()) {@command MailChimp GetVipMembers}
+ * @method array getVipActivity(array $args = array()) {@command MailChimp GetVipActivity}
  *
  * @author Michaël Gallego
  * @licence MIT
