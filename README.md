@@ -32,3 +32,19 @@ We recommend you to use Composer to install ZfrMailChimp. Just add the following
 Then, update your dependencies by typing: `php composer.phar update`.
 
 ## Tutorial
+
+Instantiate the Guzzle client:
+
+```php
+$client = new MailChimpClient('my-api-key');
+```
+
+The correct endpoint will be selected based on your API key.
+
+You can then have access to all the methods:
+
+```php
+$activity = $client->getActivity(array(
+    'id' => 'list-id'
+));
+```

@@ -1,0 +1,32 @@
+{
+  "name": "zfr/zfr-mailchimp",
+  "type": "library",
+  "license": "MIT",
+  "description" : "PHP library for interacting with the v2 MailChimp REST API",
+  "keywords": [
+    "mailchimp",
+    "mail",
+    "campaign"
+  ],
+  "homepage": "https://github.com/zf-fr/zfr-mailchimp",
+  "authors": [
+    {
+      "name": "Michaël Gallego",
+      "email": "mic.gallego@gmail.com",
+      "homepage": "http://www.michaelgallego.fr"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "guzzle/guzzle": ">=3.4,<=3.8"
+  },
+  "autoload": {
+    "psr-0": {
+      "ZfrMailChimp\\": "src/",
+      "ZfrMailChimpTest\\": "tests/"
+    },
+    "classmap": [
+      "./"
+    ]
+  }
+}
