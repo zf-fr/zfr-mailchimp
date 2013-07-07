@@ -47,6 +47,12 @@ use ZfrMailChimp\Version;
  * @method Model updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
  * @method Model updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}
  *
+ * ECOMM RELATED METHODS:
+ *
+ * @method Model addOrder(array $args = array()) {@command MailChimp AddOrder}
+ * @method Model deleteOrder(array $args = array()) {@command MailChimp DeleteOrder}
+ * @method Model getOrders(array $args = array()) {@command MailChimp GetOrders}
+ *
  * @author Michaël Gallego
  * @licence MIT
  */
