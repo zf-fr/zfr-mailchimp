@@ -60,6 +60,14 @@ use ZfrMailChimp\Version;
  * @method array getFolders(array $args = array()) {@command MailChimp GetFolders}
  * @method array updateFolders(array $args = array()) {@command MailChimp UpdateFolders}
  *
+ * USERS RELATED METHODS:
+ *
+ * @method array inviteUser(array $args = array()) {@command MailChimp InviteUser}
+ * @method array getInvitations(array $args = array()) {@command MailChimp GetInvitations}
+ * @method array getLogins(array $args = array()) {@command MailChimp GetLogins}
+ * @method array revokeLogin(array $args = array()) {@command MailChimp RevokeLogin}
+ * @method array revokeUserInvitation(array $args = array()) {@command MailChimp RevokeUserInvitation}
+ *
  * VIP RELATED METHODS:
  *
  * @method array addVipMembers(array $args = array()) {@command MailChimp AddVipMembers}

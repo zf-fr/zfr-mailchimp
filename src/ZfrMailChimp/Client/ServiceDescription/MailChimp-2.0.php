@@ -845,6 +845,124 @@ return array(
 
         /**
          * --------------------------------------------------------------------------------
+         * USERS RELATED OPERATIONS
+         * --------------------------------------------------------------------------------
+         */
+
+        'InviteUser' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'users/invite.json',
+            'summary'          => 'Invite a user to your account',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invite.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'A valid email address to send the invitation to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'role' => array(
+                    'description' => 'The role to assign to the user - one of viewer, author, manager, admin (defaults to viewer)',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('viewer', 'author', 'manager', 'admin')
+                ),
+                'message' => array(
+                    'description' => 'An optional message to include. Plain text any HTML tags will be stripped',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'msg',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'GetInvitations' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'users/invites.json',
+            'summary'          => 'Retrieve the list of pending users invitations have been sent for',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invites.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetLogins' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'users/logins.json',
+            'summary'          => 'Retrieve the list of active logins',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/logins.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'RevokeLogin' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'users/login-revoke.json',
+            'summary'          => 'Revoke access for a specified user',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/login-revoke.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'username' => array(
+                    'description' => 'The username of the login to revoke access of',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'RevokeUserInvitation' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'users/invite-revoke.json',
+            'summary'          => 'Revoke an invitation that was sent to a user',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invite-revoke.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'A valid email address to revoke the invitation from',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                )
+            )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
          * VIP RELATED OPERATIONS
          * --------------------------------------------------------------------------------
          */

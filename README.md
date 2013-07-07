@@ -7,6 +7,24 @@
 This is an unofficial MailChimp PHP client for interacting with the v2 REST MailChimp API. If you are looking
 for a wrapper around previous MailChimp API versions (like 1.3), please refer to something else.
 
+## What is done
+
+The following methods are supported by the client (not everything has been carefully tested though):
+
+* Ecomm related methods (complete)
+* Vip related methods (complete)
+* Folder related methods (complete)
+* Users related methods (complete)
+* List related methods (nearly complete)
+
+## To do
+
+* Add all the methods for other components (campaigns, helpers, templates...)
+* Provide models like Folder, Campaign...
+* Provide Guzzle iterators for simpler traversal
+* Add service layer on top on Guzzle client for easier usage
+* Add tests
+
 ## Dependencies
 
 * [Guzzle library](http://guzzlephp.org): >= 3.4
