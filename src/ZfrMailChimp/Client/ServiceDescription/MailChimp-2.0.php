@@ -23,6 +23,398 @@ return array(
     'operations'  => array(
         /**
          * --------------------------------------------------------------------------------
+         * CAMPAIGN RELATED OPERATIONS
+         * --------------------------------------------------------------------------------
+         */
+
+        'CreateCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/create.json',
+            'summary'          => 'Create a new draft campaign to send',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/create.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'type' => array(
+                    'description' => 'Campaign type to create, can be "regular", "plaintext", "absplit", "rss" or "auto"',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'enum'        => array('regular', 'plaintext', 'absplit', 'rss', 'auto')
+                ),
+                'options' => array(
+                    'description' => 'Various options to control the call',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+                'content' => array(
+                    'description' => 'Content for this campaign',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+                'segment_opts' => array(
+                    'description' => 'Options for segmentation tests',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'type_opts' => array(
+                    'description' => 'Type specific options',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'DeleteCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/delete.json',
+            'summary'          => 'Delete an existing campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/delete.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to delete',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetCampaignContent' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/content.json',
+            'summary'          => 'Get the content (both html and text) for a campaign either as it would appear in the campaign archive or as the raw, original content',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/content.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to get content for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+                'options' => array(
+                    'description' => 'Various options to control the call',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'GetCampaigns' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/list.json',
+            'summary'          => 'Get the list of campaigns and their details matching the specified filters',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/list.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'filters' => array(
+                    'description' => 'An array of filters to apply to this query',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'options' => array(
+                    'description' => 'Various options to control the call',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'start' => array(
+                    'description' => 'Control paging of campaigns, start results at this campaign #, defaults to 1st page of data (page 0)',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => false,
+                    'minimum'     => 0
+                ),
+                'limit' => array(
+                    'description' => 'Control paging of campaigns, number of compaigns to return with each call, defaults to 25 (max=1000)',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => false,
+                    'minimum'     => 0,
+                    'maximum'     => 1000
+                ),
+                'sort_field' => array(
+                    'description' => 'Can be "create_time", "send_time", "title" or "subject" (defaults to "create_time")',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('create_time', 'send_time', 'title', 'subject')
+                ),
+                'sort_dir' => array(
+                    'description' => '"desc" for descending (default), "asc" for Ascending',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('desc', 'asc')
+                )
+            )
+        ),
+
+        'PauseCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/pause.json',
+            'summary'          => 'Pause an AutoResponder or RSS campaign from sending',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/pause.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to pause',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+            )
+        ),
+
+        'ReplicateCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/replicate.json',
+            'summary'          => 'Replicate a campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/replicate.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to replicate',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+            )
+        ),
+
+        'ResumeCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/resume.json',
+            'summary'          => 'Resume sending an AutoResponder or RSS campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/resume.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to replicate',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+            )
+        ),
+
+        'ScheduleCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/schedule.json',
+            'summary'          => 'Schedule a campaign to be sent in the future',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/schedule.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to schedule',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+                'schedule_time' => array(
+                    'description' => 'The time to schedule the campaign (in 24 hour GMT format). For A/B Split "schedule" campaigns, the time for Group A',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'schedule_time_b' => array(
+                    'description' => 'The time to schedule the campaign (in 24 hour GMT format). For A/B Split "schedule" campaigns, the time for Group B',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'ScheduleBatchCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/schedule-batch.json',
+            'summary'          => 'Schedule a campaign to be sent in batches in the future. Only valid for regular campaigns',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/schedule-batch.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to schedule',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+                'schedule_time' => array(
+                    'description' => 'The time to schedule the campaign (in 24 hour GMT format). For A/B Split "schedule" campaigns, the time for Group A',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'num_batches' => array(
+                    'description' => 'The number of batches between 2 and 26 to send (defaults to 2)',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => false,
+                    'minimum'     => 2,
+                    'maximum'     => 26
+                ),
+                'stagger_mins' => array(
+                    'description' => 'The number of minutes between each batch - 5, 10, 15, 20, 25, 30, or 60 (defaults to 5)',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => false,
+                    'enum'        => array(5, 10, 15, 20, 25, 30, 60)
+                )
+            )
+        ),
+
+        'SendCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/send.json',
+            'summary'          => 'Send a given campaign immediately. For RSS campaigns, this will "start" them.',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/send.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to send',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+            )
+        ),
+
+        'SendTestCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/send-test.json',
+            'summary'          => 'Send a test campaign immediately. For RSS campaigns, this will "start" them.',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/send-test.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to send',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+                'test_emails' => array(
+                    'description' => 'An array of emails to receive the test campaign',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'send_type' => array(
+                    'description' => 'Specify the format, can be "html" or "text"',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('html', 'text')
+                )
+            )
+        ),
+
+        'UnscheduleCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/unschedule.json',
+            'summary'          => 'Unschedule a campaign that is scheduled to be sent in the future',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/unschedule.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to unschedule',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                )
+            )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
          * LIST RELATED OPERATIONS
          * --------------------------------------------------------------------------------
          */
@@ -413,7 +805,7 @@ return array(
                     'maximum'     => 100
                 ),
                 'sort_field' => array(
-                    'description' => '"Created" (the created date, default) or "web" (the display order in the web app)',
+                    'description' => '"created" (the created date, default) or "web" (the display order in the web app)',
                     'location'    => 'json',
                     'type'        => 'string',
                     'required'    => false,

@@ -26,6 +26,21 @@ use ZfrMailChimp\Version;
 /**
  * MailChimp client to interact with MailChimp API
  *
+ * CAMPAIGN RELATED METHODS:
+ *
+ * @method array createCampaign(array $args = array()) {@command MailChimp CreateCampaign}
+ * @method array deleteCampaign(array $args = array()) {@command MailChimp DeleteCampaign}
+ * @method array getCampaignContent(array $args = array()) {@command MailChimp GetCampaignContent}
+ * @method array getCampaigns(array $args = array()) {@command MailChimp GetCampaigns}
+ * @method array pauseCampaign(array $args = array()) {@command MailChimp PauseCampaign}
+ * @method array replicateCampaign(array $args = array()) {@command MailChimp ReplicateCampaign}
+ * @method array resumeCampaign(array $args = array()) {@command MailChimp ResumeCampaign}
+ * @method array scheduleCampaign(array $args = array()) {@command MailChimp ScheduleCampaign}
+ * @method array scheduleBatchCampaign(array $args = array()) {@command MailChimp ScheduleBatchCampaign}
+ * @method array sendCampaign(array $args = array()) {@command MailChimp SendCampaign}
+ * @method array sendTestCampaign(array $args = array()) {@command MailChimp SendTestCampaign}
+ * @method array unscheduleCampaign(array $args = array()) {@command MailChimp UnscheduleCampaign}
+ *
  * LIST RELATED METHODS:
  *
  * @method array addInterestGroup(array $args = array()) {@command MailChimp AddInterestGroup}

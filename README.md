@@ -11,6 +11,7 @@ for a wrapper around previous MailChimp API versions (like 1.3), please refer to
 
 The following methods are supported by the client (not everything has been carefully tested though):
 
+* Campaign related methods (nearly complete)
 * Ecomm related methods (complete)
 * Vip related methods (complete)
 * Folder related methods (complete)
@@ -20,7 +21,7 @@ The following methods are supported by the client (not everything has been caref
 
 ## To do
 
-* Add all the methods for other components (campaigns, helpers...)
+* Add all the methods for other components (helpers...)
 * Provide models like Folder, Campaign...
 * Provide Guzzle iterators for simpler traversal
 * Add service layer on top on Guzzle client for easier usage
