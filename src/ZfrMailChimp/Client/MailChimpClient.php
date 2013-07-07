@@ -59,8 +59,9 @@ class MailChimpClient extends Client
 
     /**
      * @param string $apiKey
+     * @param string $version
      */
-    public function __construct($apiKey)
+    public function __construct($apiKey, $version = self::LATEST_API_VERSION)
     {
         // Make sure we always have the app_id parameter as default
         parent::__construct('', array(
@@ -71,7 +72,7 @@ class MailChimpClient extends Client
 
         $this->setDescription(ServiceDescription::factory(sprintf(
             __DIR__ . '/ServiceDescription/MailChimp-%s.php',
-            self::LATEST_API_VERSION
+            $version
         )));
 
         // Prefix the User-Agent by SDK version
@@ -79,7 +80,7 @@ class MailChimpClient extends Client
 
         // The base URL depends on the API key
         $parts = explode('-', $apiKey);
-        $this->setBaseUrl(sprintf('https://%s.api.mailchimp.com/%s', end($parts), self::LATEST_API_VERSION));
+        $this->setBaseUrl(sprintf('https://%s.api.mailchimp.com/%s', end($parts), $version));
     }
 
     /**
