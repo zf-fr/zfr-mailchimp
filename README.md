@@ -15,11 +15,12 @@ The following methods are supported by the client (not everything has been caref
 * Vip related methods (complete)
 * Folder related methods (complete)
 * Users related methods (complete)
+* Templates related methods (complete)
 * List related methods (nearly complete)
 
 ## To do
 
-* Add all the methods for other components (campaigns, helpers, templates...)
+* Add all the methods for other components (campaigns, helpers...)
 * Provide models like Folder, Campaign...
 * Provide Guzzle iterators for simpler traversal
 * Add service layer on top on Guzzle client for easier usage

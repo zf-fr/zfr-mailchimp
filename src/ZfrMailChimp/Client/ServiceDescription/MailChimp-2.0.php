@@ -845,6 +845,175 @@ return array(
 
         /**
          * --------------------------------------------------------------------------------
+         * TEMPLATES RELATED OPERATIONS
+         * --------------------------------------------------------------------------------
+         */
+
+        'AddTemplate' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'templates/add.json',
+            'summary'          => 'Create a new user template, NOT campaign content. These templates can then be applied while creating campaigns',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/add.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'name' => array(
+                    'description' => 'The name for the template - names must be unique and a max of 50 bytes',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'html' => array(
+                    'description' => 'A string specifying the entire template to be created. This is NOT campaign content',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'folder_id' => array(
+                    'description' => 'The folder to put this template on',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'DeleteTemplate' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'templates/del.json',
+            'summary'          => 'Delete (deactivate) a user template',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'template_id' => array(
+                    'description' => 'The template id to delete',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetTemplateInfo' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'templates/info.json',
+            'summary'          => 'Get details for a specific template to help support editing',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/info.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'template_id' => array(
+                    'description' => 'The template id to get info from',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                ),
+                'type' => array(
+                    'description' => 'The template type to load - one of "user", "gallery", "base" (defaults to "user")',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('user', 'gallery', 'base')
+                )
+            )
+        ),
+
+        'GetTemplates' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'templates/list.json',
+            'summary'          => 'Retrieve various templates available in the system',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/list.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'types' => array(
+                    'description' => 'The types of templates to return',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'filters' => array(
+                    'description' => 'Options to control how inactive templates are returned, if at all',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'UndeleteTemplate' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'templates/undel.json',
+            'summary'          => 'Undelete (reactivate) a user template',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/undel.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'template_id' => array(
+                    'description' => 'The template id to reactivate',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'UpdateTemplate' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'templates/update.json',
+            'summary'          => 'Replace the content of a user template, NOT campaign content',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/update.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'template_id' => array(
+                    'description' => 'The template id to reactivate',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                ),
+                'values' => array(
+                    'description' => 'The values to update',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                )
+            )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
          * USERS RELATED OPERATIONS
          * --------------------------------------------------------------------------------
          */
@@ -869,7 +1038,7 @@ return array(
                     'required'    => true
                 ),
                 'role' => array(
-                    'description' => 'The role to assign to the user - one of viewer, author, manager, admin (defaults to viewer)',
+                    'description' => 'The role to assign to the user - one of "viewer", "author", "manager", "admin" (defaults to "viewer")',
                     'location'    => 'json',
                     'type'        => 'string',
                     'required'    => false,
@@ -912,6 +1081,28 @@ return array(
                     'location'    => 'json',
                     'type'        => 'string',
                     'sentAs'      => 'apikey',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'ReinviteUser' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'users/invite-resend.json',
+            'summary'          => 'Reinvite a user to your account',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invite-resend.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'A valid email address to resend the invitation to',
+                    'location'    => 'json',
+                    'type'        => 'string',
                     'required'    => true
                 )
             )

@@ -60,11 +60,21 @@ use ZfrMailChimp\Version;
  * @method array getFolders(array $args = array()) {@command MailChimp GetFolders}
  * @method array updateFolders(array $args = array()) {@command MailChimp UpdateFolders}
  *
+ * TEMPLATE RELATED METHODS:
+ *
+ * @method array addTemplate(array $args = array()) {@command MailChimp AddTemplate}
+ * @method array deleteTemplate(array $args = array()) {@command MailChimp DeleteTemplate}
+ * @method array getTemplateInfo(array $args = array()) {@command MailChimp GetTemplateInfo}
+ * @method array getTemplates(array $args = array()) {@command MailChimp GetTemplates}
+ * @method array undeleteTemplate(array $args = array()) {@command MailChimp UndeleteTemplate}
+ * @method array updateTemplate(array $args = array()) {@command MailChimp UpdateTemplate}
+ *
  * USERS RELATED METHODS:
  *
  * @method array inviteUser(array $args = array()) {@command MailChimp InviteUser}
  * @method array getInvitations(array $args = array()) {@command MailChimp GetInvitations}
  * @method array getLogins(array $args = array()) {@command MailChimp GetLogins}
+ * @method array reinviteUser(array $args = array()) {@command MailChimp ReinviteUser}
  * @method array revokeLogin(array $args = array()) {@command MailChimp RevokeLogin}
  * @method array revokeUserInvitation(array $args = array()) {@command MailChimp RevokeUserInvitation}
  *
