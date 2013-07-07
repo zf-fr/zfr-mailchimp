@@ -1,5 +1,7 @@
 # ZfrMailChimp, a MailChimp PHP Library
 
+> This library is a work-in-progress, not complete yet
+
 ## Introduction
 
 This is an unofficial MailChimp PHP client for interacting with the v2 REST MailChimp API. If you are looking
