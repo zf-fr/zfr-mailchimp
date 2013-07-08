@@ -1479,7 +1479,7 @@ return array(
                     'required'    => true
                 ),
                 'type' => array(
-                    'description' => 'The type of folder to delete - one of "campaign", "autoresponder", or "template"',
+                    'description' => 'The type of folder to retrieve - one of "campaign", "autoresponder", or "template"',
                     'location'    => 'json',
                     'type'        => 'string',
                     'required'    => true,

@@ -82,7 +82,7 @@ use ZfrMailChimp\Version;
  * @method array addFolder(array $args = array()) {@command MailChimp AddFolder}
  * @method array deleteFolder(array $args = array()) {@command MailChimp DeleteFolder}
  * @method array getFolders(array $args = array()) {@command MailChimp GetFolders}
- * @method array updateFolders(array $args = array()) {@command MailChimp UpdateFolders}
+ * @method array updateFolder(array $args = array()) {@command MailChimp UpdateFolders}
  *
  * TEMPLATE RELATED METHODS:
  *

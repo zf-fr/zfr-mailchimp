@@ -47,7 +47,7 @@ We recommend you to use Composer to install ZfrMailChimp. Just add the following
 ```json
 {
     require: {
-        "zfr/zfr-mailchimp": "1.*"
+        "zfr/zfr-mailchimp": "dev-master"
     }
 }
 ```
@@ -77,6 +77,22 @@ $client->addFolder(array(
     'name' => 'my-folder-name',
     'type' => 'template'
 ));
+```
+
+### Services
+
+Interacting with the client is a bit lower-level and involves manually creating the request array. ZfrMailChimp
+therefore provide higher level classes for each part of MailChimp API. As of today, only folders related methods
+are supported.
+
+You just need to instantiate the service:
+
+```php
+$client = new MailChimpClient('my-api-key');
+$service = new FolderService($client);
+
+$folderId = $service->addFolder('my-folder', FolderType::CAMPAIGN);
+$service->removeFolder($folderId, FolderType::CAMPAIGN);
 ```
 
 The library provides basic validation for most methods. For instance, in the "addFolder" method, if you provide
