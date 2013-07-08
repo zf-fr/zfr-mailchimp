@@ -833,7 +833,7 @@ return array(
             )
         ),
 
-        'GetActivity' => array(
+        'GetListActivity' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/activity.json',
             'summary'          => 'Access up to the previous 180 days of daily detailed aggregated activity stats for a given list',
@@ -855,7 +855,7 @@ return array(
             )
         ),
 
-        'GetClients' => array(
+        'GetListClients' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/clients.json',
             'summary'          => 'Retrieve the clients that the list\'s subscribers have been tagged as being used based on user agents seen',
@@ -877,7 +877,7 @@ return array(
             )
         ),
 
-        'GetGrowthHistory' => array(
+        'GetListGrowthHistory' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/growth-history.json',
             'summary'          => 'Access the growth history by month for a given list',
@@ -1000,7 +1000,7 @@ return array(
             )
         ),
 
-        'GetLocations' => array(
+        'GetListLocations' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/locations.json',
             'summary'          => 'Retrieve the locations (countries) that the list\'s subscribers have been tagged to based on geocoding their IP address',
@@ -1022,7 +1022,7 @@ return array(
             )
         ),
 
-        'GetMembers' => array(
+        'GetListMembers' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/members.json',
             'summary'          => 'Get all of the list members for a list that are of a particular status and potentially matching a segment. This will cause locking, so don\'t run multiples at once.',
@@ -1057,7 +1057,7 @@ return array(
             )
         ),
 
-        'GetMembersActivity' => array(
+        'GetListMembersActivity' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/member-activity.json',
             'summary'          => 'Get the most recent 100 activities for particular list members (open, click, bounce, unsub, abuse, sent to, etc.)',
@@ -1086,7 +1086,7 @@ return array(
             )
         ),
 
-        'GetMembersInfo' => array(
+        'GetListMembersInfo' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/member-info.json',
             'summary'          => 'Get all the information for particular members of a list',
