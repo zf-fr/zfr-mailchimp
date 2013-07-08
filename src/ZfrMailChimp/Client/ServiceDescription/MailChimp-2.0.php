@@ -183,6 +183,29 @@ return array(
             )
         ),
 
+        'GetTemplateContent' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/template-content.json',
+            'summary'          => 'Get the HTML template content sections for a campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/template-content.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to get content for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+            )
+        ),
+
         'PauseCampaign' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/pause.json',
@@ -390,6 +413,34 @@ return array(
             )
         ),
 
+        'TestSegmentation' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/segment-test.json',
+            'summary'          => 'Test segmentation rules before creating a campaign using them',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/segment-test.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'list_id' => array(
+                    'description' => 'The list to test segmentation on',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'options' => array(
+                    'description' => 'An array of emails to receive the test campaign',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                )
+            )
+        ),
+
         'UnscheduleCampaign' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/unschedule.json',
@@ -408,6 +459,42 @@ return array(
                     'location'    => 'json',
                     'type'        => 'string',
                     'sentAs'      => 'cid',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'UpdateCampaign' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'campaigns/update.json',
+            'summary'          => 'Update just about any setting besides type for a campaign that has not been sent (there are a few caveats for this method, please refer to the official documentation)',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/update.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'campaign_id' => array(
+                    'description' => 'The campaign id to unschedule',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'cid',
+                    'required'    => true
+                ),
+                'name' => array(
+                    'description' => 'The parameter name (can be "options", "content" or "segment_opts")',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'enum'        => array('options', 'content', 'segment_opts')
+                ),
+                'value' => array(
+                    'description' => 'An appropriate set of values for the given parameter',
+                    'location'    => 'json',
+                    'type'        => 'array',
                     'required'    => true
                 )
             )

@@ -32,6 +32,7 @@ use ZfrMailChimp\Version;
  * @method array deleteCampaign(array $args = array()) {@command MailChimp DeleteCampaign}
  * @method array getCampaignContent(array $args = array()) {@command MailChimp GetCampaignContent}
  * @method array getCampaigns(array $args = array()) {@command MailChimp GetCampaigns}
+ * @method array getTemplateContent(array $args = array()) {@command MailChimp GetTemplateContent}
  * @method array pauseCampaign(array $args = array()) {@command MailChimp PauseCampaign}
  * @method array replicateCampaign(array $args = array()) {@command MailChimp ReplicateCampaign}
  * @method array resumeCampaign(array $args = array()) {@command MailChimp ResumeCampaign}
@@ -39,7 +40,9 @@ use ZfrMailChimp\Version;
  * @method array scheduleBatchCampaign(array $args = array()) {@command MailChimp ScheduleBatchCampaign}
  * @method array sendCampaign(array $args = array()) {@command MailChimp SendCampaign}
  * @method array sendTestCampaign(array $args = array()) {@command MailChimp SendTestCampaign}
+ * @method array testSegmentation(array $args = array()) {@command MailChimp TestSegmentation}
  * @method array unscheduleCampaign(array $args = array()) {@command MailChimp UnscheduleCampaign}
+ * @method array updateCampaign(array $args = array()) {@command MailChimp UpdateCampaign}
  *
  * LIST RELATED METHODS:
  *

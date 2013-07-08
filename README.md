@@ -11,7 +11,7 @@ for a wrapper around previous MailChimp API versions (like 1.3), please refer to
 
 The following methods are supported by the client (not everything has been carefully tested though):
 
-* Campaign related methods (nearly complete)
+* Campaign related methods (complete)
 * Ecomm related methods (complete)
 * Vip related methods (complete)
 * Folder related methods (complete)
