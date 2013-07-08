@@ -48,20 +48,26 @@ use ZfrMailChimp\Version;
  *
  * @method array addInterestGroup(array $args = array()) {@command MailChimp AddInterestGroup}
  * @method array addInterestGrouping(array $args = array()) {@command MailChimp AddInterestGrouping}
+ * @method array addListMergeVar(array $args = array()) {@command MailChimp AddListMergeVar}
  * @method array batchSubscribe(array $args = array()) {@command MailChimp BatchSubscribe}
  * @method array batchUnsubscribe(array $args = array()) {@command MailChimp BatchUnsubscribe}
  * @method array deleteInterestGroup(array $args = array()) {@command MailChimp DeleteInterestGroup}
  * @method array deleteInterestGrouping(array $args = array()) {@command MailChimp DeleteInterestGrouping}
+ * @method array deleteListMergeVar(array $args = array()) {@command MailChimp DeleteListMergeVar}
  * @method array getAbuseReports(array $args = array()) {@command MailChimp GetAbuseReports}
  * @method array getActivity(array $args = array()) {@command MailChimp GetActivity}
  * @method array getClients(array $args = array()) {@command MailChimp GetClients}
  * @method array getGrowthHistory(array $args = array()) {@command MailChimp GetGrowthHistory}
  * @method array getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
+ * @method array getListMergeVars(array $args = array()) {@command MailChimp GetListMergeVars}
  * @method array getLists(array $args = array()) {@command MailChimp GetLists}
  * @method array getLocations(array $args = array()) {@command MailChimp GetLocations}
  * @method array getMembers(array $args = array()) {@command MailChimp GetMembers}
  * @method array getMembersActivity(array $args = array()) {@command MailChimp GetMembersActivity}
  * @method array getMembersInfo(array $args = array()) {@command MailChimp GetMembersInfo}
+ * @method array resetListMergeVar(array $args = array()) {@command MailChimp ResetListMergeVar}
+ * @method array setListMergeVar(array $args = array()) {@command MailChimp SetListMergeVar}
+ * @method array unsubscribe(array $args = array()) {@command MailChimp Unsubscribe}
  * @method array updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
  * @method array updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}
  *

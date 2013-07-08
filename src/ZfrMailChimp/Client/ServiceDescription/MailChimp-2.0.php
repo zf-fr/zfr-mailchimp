@@ -578,6 +578,47 @@ return array(
             )
         ),
 
+        'AddListMergeVar' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/merge-var-add.json',
+            'summary'          => 'Add a new merge var to a list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-add.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'tag' => array(
+                    'description' => 'The merge tag to add, e.g. FNAME. 10 bytes max, valid characters: "A-Z 0-9 _" no spaces, dashes, etc. Some tags and prefixes are reserved',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'pattern'     => '/^[a-zA-Z0-9_]+$/'
+                ),
+                'name' => array(
+                    'description' => 'The long description of the tag being added, used for user displays',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'options' => array(
+                    'description' => 'Various options for this merge var',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
         'BatchSubscribe' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/batch-subscribe.json',
@@ -726,6 +767,35 @@ return array(
             )
         ),
 
+        'DeleteListMergeVar' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/merge-var-del.json',
+            'summary'          => 'Delete an existing merge var to a list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'tag' => array(
+                    'description' => 'The merge tag to delete',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'pattern'     => '/^[a-zA-Z0-9_]+$/'
+                )
+            )
+        ),
+
         'GetAbuseReports' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/abuse-reports.json',
@@ -854,6 +924,28 @@ return array(
                     'type'        => 'boolean',
                     'required'    => false
                 )
+            )
+        ),
+
+        'GetListMergeVars' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/merge-vars.json',
+            'summary'          => 'Get the list of merge tags for a given list, including their name, tag, and required setting',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-vars.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to retrieve merge vars for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
             )
         ),
 
@@ -1020,6 +1112,116 @@ return array(
                     'required'    => true,
                     'maxItems'    => 50
                 )
+            )
+        ),
+
+        'ResetListMergeVar' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/merge-var-reset.json',
+            'summary'          => 'Completely resets all data stored in a merge var on a list. All data is removed and this action can not be undone.',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-reset.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'tag' => array(
+                    'description' => 'The merge tag to reset',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'pattern'     => '/^[a-zA-Z0-9_]+$/'
+                )
+            )
+        ),
+
+        'SetListMergeVar' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/merge-var-set.json',
+            'summary'          => 'Sets a particular merge var to the specified value for every list member. Only merge var ids 1 - 30 may be modified this way',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-set.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'tag' => array(
+                    'description' => 'The merge tag to set',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                    'pattern'     => '/^[a-zA-Z0-9_]+$/'
+                ),
+                'value' => array(
+                    'description' => 'The value of the merge tag',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true,
+                )
+            )
+        ),
+
+        'Unsubscribe' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/unsubscribe.json',
+            'summary'          => 'Unsubscribe the given email address from the list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/unsubscribe.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'The email to remove',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+                'delete_member' => array(
+                    'description' => 'Flag to completely delete the member from your list instead of just unsubscribing (default to false)',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'send_goodbye' => array(
+                    'description' => 'Flag to send the goodbye email to the email address (defaults to true)',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'send_notify' => array(
+                    'description' => 'Flag to send the unsubscribe notification email to the address defined in the list email notification settings (defaults to true)',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
             )
         ),
 
