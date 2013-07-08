@@ -93,9 +93,10 @@ class FolderService extends AbstractMailChimpService
     }
 
     /**
-     * @param int    $id   Identifier of the folder to update
-     * @param string $name New name of the folder
-     * @param string $type Type of the folder
+     * @param  int    $id   Identifier of the folder to update
+     * @param  string $name New name of the folder
+     * @param  string $type Type of the folder
+     * @return bool True if update was successful
      */
     public function updateFolder($id, $name, $type)
     {
