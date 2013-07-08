@@ -103,6 +103,11 @@ use ZfrMailChimp\Version;
  * @method array getVipMembers(array $args = array()) {@command MailChimp GetVipMembers}
  * @method array getVipActivity(array $args = array()) {@command MailChimp GetVipActivity}
  *
+ * HELPER RELATED METHODS:
+ *
+ * @method array getAccountDetails(array $args = array()) {@command MailChimp GetAccountDetails}
+ * @method array ping(array $args = array()) {@command MailChimp Ping}
+ *
  * @author Michaël Gallego
  * @licence MIT
  */

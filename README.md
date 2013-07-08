@@ -18,10 +18,11 @@ The following methods are supported by the client (not everything has been caref
 * Users related methods (complete)
 * Templates related methods (complete)
 * List related methods (nearly complete)
+* Helper related methods (partially complete)
 
 ## To do
 
-* Add all the methods for other components (helpers...)
+* Add all missing methods for other components
 * Provide models like Folder, Campaign...
 * Provide Guzzle iterators for simpler traversal
 * Add service layer on top on Guzzle client for easier usage

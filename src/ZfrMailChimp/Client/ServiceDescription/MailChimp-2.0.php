@@ -1725,6 +1725,57 @@ return array(
                     'required'    => true
                 ),
             )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
+         * HELPER RELATED OPERATIONS
+         * --------------------------------------------------------------------------------
+         */
+
+        'GetAccountDetails' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'helper/account-details.json',
+            'summary'          => 'Retrieve lots of account information including payments made, plan info, some account stats, installed modules, contact info, and more. No private information like credit card numbers is available',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/helper/account-details.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'exclude' => array(
+                    'description' => 'Allows controlling which extra arrays are returned since they can slow down calls. Can be ""modules", "orders", "rewards-credits", "rewards-inspections", "rewards-referrals", "rewards-applied" or "integrations"',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false,
+                    'items'       => array(
+                        'type' => 'string',
+                        'enum' => array(
+                            'modules', 'orders', 'rewards-credits', 'rewards-inspections',
+                            'rewards-referrals', 'rewards-applied', 'integrations'
+                        )
+                    )
+                )
+            )
+        ),
+
+        'Ping' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'helper/ping.json',
+            'summary'          => 'Ping the MailChimp API',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/helper/ping.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                )
+            )
         )
     ),
 );
