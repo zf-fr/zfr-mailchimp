@@ -1,6 +1,7 @@
 # ZfrMailChimp, a MailChimp PHP Library
 
-> This library is a work-in-progress, not complete yet
+> Note : this library does not contain tests, mainly because I'm not sure about how to write tests for an API
+wrapper. Don't hesitate to help on this ;-).
 
 ## Introduction
 
@@ -19,14 +20,6 @@ The following methods are supported by the client (not everything has been caref
 * Templates related methods (complete)
 * List related methods (nearly complete)
 * Helper related methods (partially complete)
-
-## To do
-
-* Add all missing methods for other components
-* Provide models like Folder, Campaign...
-* Provide Guzzle iterators for simpler traversal
-* Add service layer on top on Guzzle client for easier usage
-* Add tests
 
 ## Dependencies
 
@@ -79,25 +72,89 @@ $client->addFolder(array(
 ));
 ```
 
-### Services
+### How to use it ?
 
-Interacting with the client is a bit lower-level and involves manually creating the request array. ZfrMailChimp
-therefore provide higher level classes for each part of MailChimp API. As of today, only folders related methods
-are supported.
-
-You just need to instantiate the service:
+You will notice that the method names below does not always have a 1-to-1 mapping with the API names. What I wanted
+to do is making the names as natural as possible (for instance, I added "get" in front of most methods). Moreover,
+parameters for each method can be found be reading the ServiceDescription file. For instance, let's take the "Subscribe"
+description:
 
 ```php
-$client = new MailChimpClient('my-api-key');
-$service = new FolderService($client);
-
-$folderId = $service->addFolder('my-folder', FolderType::CAMPAIGN);
-$service->removeFolder($folderId, FolderType::CAMPAIGN);
+'Subscribe' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/subscribe.json',
+            'summary'          => 'Subscribe the given email address to the list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'The email to add',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+                'merge_vars' => array(
+                    'description' => 'Optional merge variables to the email',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'email_type' => array(
+                    'description' => 'Email type preference for the email',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('html', 'text')
+                ),
+                'double_optin' => array(
+                    'description' => 'Flag to control whether to send an opt-in confirmation email - defaults to true',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'update_existing' => array(
+                    'description' => 'Flag to control whether to update members that are already subscribed to the list or to return an error - defaults to false',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'replace_interests' => array(
+                    'description' => 'Flag to determine whether we replace the interest groups with the updated groups provided, or we add the provided groups to the member\'s interest groups - defaults to true',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'send_welcome'    => array(
+                    'description' => 'Decide wether to send a send welcome email',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                )
+            )
+        ),
 ```
 
-The library provides basic validation for most methods. For instance, in the "addFolder" method, if you provide
-a type different than "campaign", "autoresponder" or "template", a `Guzzle\Service\Exception\ValidationException`
-will be thrown.
+If you have a look at the [official documentation](http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php) for this method, you can see from both the descriptor and the doc that "email" is in fact an array, and that it accepts "email", "euid" and
+"leid" parameters. You can therefore call this method like that:
+
+```php
+$client->subscribe(array(
+	'id'    => 'my-list-id',
+	'email' => array('email' => 'my-address@foo.com')
+));
+```
 
 ### Complete reference
 
@@ -145,6 +202,7 @@ LIST RELATED METHODS:
 * array getListMembersInfo(array $args = array()) {@command MailChimp GetListMembersInfo}
 * array resetListMergeVar(array $args = array()) {@command MailChimp ResetListMergeVar}
 * array setListMergeVar(array $args = array()) {@command MailChimp SetListMergeVar}
+* array subscribe(array $args = array()) {@command MailChimp Subscribe}
 * array unsubscribe(array $args = array()) {@command MailChimp Unsubscribe}
 * array updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
 * array updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}

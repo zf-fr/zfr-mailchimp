@@ -67,6 +67,7 @@ use ZfrMailChimp\Version;
  * @method array getListMembersInfo(array $args = array()) {@command MailChimp GetListMembersInfo}
  * @method array resetListMergeVar(array $args = array()) {@command MailChimp ResetListMergeVar}
  * @method array setListMergeVar(array $args = array()) {@command MailChimp SetListMergeVar}
+ * @method array subscribe(array $args = array()) {@command MailChimp Subscribe}
  * @method array unsubscribe(array $args = array()) {@command MailChimp Unsubscribe}
  * @method array updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
  * @method array updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}

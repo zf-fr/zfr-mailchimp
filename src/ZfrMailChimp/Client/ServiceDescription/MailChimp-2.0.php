@@ -120,8 +120,30 @@ return array(
                 'options' => array(
                     'description' => 'Various options to control the call',
                     'location'    => 'json',
-                    'type'        => 'array',
-                    'required'    => false
+                    'type'        => 'object',
+                    'required'    => false,
+                    'properties'  => array(
+                        'view' => array(
+                            'type'     => 'string',
+                            'required' => false,
+                            'enum'     => array('archive', 'preview', 'raw')
+                        ),
+                        'email' => array(
+                            'type'       => 'object',
+                            'required'   => false,
+                            'properties' => array(
+                                'email' => array(
+                                    'type' => 'string'
+                                ),
+                                'euid' => array(
+                                    'type' => 'string'
+                                ),
+                                'leid' => array(
+                                    'type' => 'string'
+                                )
+                            )
+                        )
+                    )
                 )
             )
         ),
@@ -1175,6 +1197,71 @@ return array(
                     'location'    => 'json',
                     'type'        => 'string',
                     'required'    => true,
+                )
+            )
+        ),
+
+        'Subscribe' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/subscribe.json',
+            'summary'          => 'Subscribe the given email address to the list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'The email to add',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+                'merge_vars' => array(
+                    'description' => 'Optional merge variables to the email',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'email_type' => array(
+                    'description' => 'Email type preference for the email',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('html', 'text')
+                ),
+                'double_optin' => array(
+                    'description' => 'Flag to control whether to send an opt-in confirmation email - defaults to true',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'update_existing' => array(
+                    'description' => 'Flag to control whether to update members that are already subscribed to the list or to return an error - defaults to false',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'replace_interests' => array(
+                    'description' => 'Flag to determine whether we replace the interest groups with the updated groups provided, or we add the provided groups to the member\'s interest groups - defaults to true',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                ),
+                'send_welcome'    => array(
+                    'description' => 'Decide wether to send a send welcome email',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
                 )
             )
         ),
