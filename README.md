@@ -35,14 +35,10 @@ Want to do an integration for another framework? Open an issue, and I'll open a 
 
 ## Installation
 
-We recommend you to use Composer to install ZfrMailChimp. Just add the following line into your `composer.json` file:
+We recommend you to use Composer to install ZfrMailChimp:
 
-```json
-{
-    require: {
-        "zfr/zfr-mailchimp": "dev-master"
-    }
-}
+```sh
+php composer.phar require zfr/zfr-mailchimp:dev-master
 ```
 
 Then, update your dependencies by typing: `php composer.phar update`.
