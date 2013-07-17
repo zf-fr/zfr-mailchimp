@@ -22,8 +22,7 @@
   },
   "autoload": {
     "psr-0": {
-      "ZfrMailChimp\\": "src/",
-      "ZfrMailChimpTest\\": "tests/"
+      "ZfrMailChimp\\": "src/"
     },
     "classmap": [
       "./"
