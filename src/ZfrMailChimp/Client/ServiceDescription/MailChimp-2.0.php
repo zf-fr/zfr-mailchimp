@@ -87,11 +87,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to delete',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 )
             )
@@ -110,40 +109,17 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to get content for',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
                 'options' => array(
                     'description' => 'Various options to control the call',
                     'location'    => 'json',
-                    'type'        => 'object',
-                    'required'    => false,
-                    'properties'  => array(
-                        'view' => array(
-                            'type'     => 'string',
-                            'required' => false,
-                            'enum'     => array('archive', 'preview', 'raw')
-                        ),
-                        'email' => array(
-                            'type'       => 'object',
-                            'required'   => false,
-                            'properties' => array(
-                                'email' => array(
-                                    'type' => 'string'
-                                ),
-                                'euid' => array(
-                                    'type' => 'string'
-                                ),
-                                'leid' => array(
-                                    'type' => 'string'
-                                )
-                            )
-                        )
-                    )
+                    'type'        => 'array',
+                    'required'    => false
                 )
             )
         ),
@@ -200,7 +176,7 @@ return array(
                     'location'    => 'json',
                     'type'        => 'string',
                     'required'    => false,
-                    'enum'        => array('desc', 'asc')
+                    'enum'        => array('desc', 'DESC', 'asc', 'ASC')
                 )
             )
         ),
@@ -218,11 +194,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to get content for',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
             )
@@ -241,11 +216,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to pause',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
             )
@@ -264,11 +238,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to replicate',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
             )
@@ -287,11 +260,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to replicate',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
             )
@@ -310,11 +282,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to schedule',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
                 'schedule_time' => array(
@@ -345,11 +316,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to schedule',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
                 'schedule_time' => array(
@@ -389,11 +359,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to send',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
             )
@@ -412,11 +381,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to send',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
                 'test_emails' => array(
@@ -476,11 +444,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to unschedule',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 )
             )
@@ -499,11 +466,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'The campaign id to unschedule',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'cid',
                     'required'    => true
                 ),
                 'name' => array(
@@ -637,6 +603,34 @@ return array(
                     'location'    => 'json',
                     'type'        => 'array',
                     'required'    => false
+                )
+            )
+        ),
+
+        'AddListWebhook' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/webhook-del.json',
+            'summary'          => 'Delete an existing webhook URL from the given list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhook-del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'url' => array(
+                    'description' => 'A valid URL for the webhook',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
                 )
             )
         ),
@@ -1017,7 +1011,7 @@ return array(
                     'location'    => 'json',
                     'type'        => 'string',
                     'required'    => false,
-                    'enum'        => array('desc', 'asc')
+                    'enum'        => array('desc', 'DESC', 'asc', 'ASC')
                 )
             )
         ),
@@ -1137,6 +1131,28 @@ return array(
             )
         ),
 
+        'GetListWebhooks' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/webhook.json',
+            'summary'          => 'Get all the webhooks URL for the given list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhooks.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                )
+            )
+        ),
+
         'ResetListMergeVar' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/merge-var-reset.json',
@@ -1221,7 +1237,7 @@ return array(
                     'required'    => true
                 ),
                 'email' => array(
-                    'description' => 'The email to add',
+                    'description' => 'An array containing data about the email',
                     'location'    => 'json',
                     'type'        => 'array',
                     'required'    => true
@@ -1286,7 +1302,7 @@ return array(
                     'required'    => true
                 ),
                 'email' => array(
-                    'description' => 'The email to remove',
+                    'description' => 'An array containing data about the email to remove',
                     'location'    => 'json',
                     'type'        => 'array',
                     'required'    => true
@@ -1387,6 +1403,47 @@ return array(
             )
         ),
 
+        'UpdateListMember' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/update-member.json',
+            'summary'          => 'Edit the email address, merge fields, and interest groups for a list member',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/update-member.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'An array containing data about the email',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+                'merge_vars' => array(
+                    'description' => 'New field values to update the member with',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+                'email_type' => array(
+                    'description' => 'Email type preference for the email',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('html', 'text')
+                ),
+                'replace_interests' => array(
+                    'description' => 'Flag to determine whether we replace the interest groups with the updated groups provided, or we add the provided groups to the member\'s interest groups - defaults to true',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                )
+            )
+        ),
+
         /**
          * --------------------------------------------------------------------------------
          * ECOMM RELATED OPERATIONS
@@ -1456,12 +1513,11 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'campaign_id' => array(
+                'cid' => array(
                     'description' => 'If set, limit the returned orders to a particular campaign',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'required'    => false,
-                    'sentAs'      => 'cid'
+                    'required'    => false
                 ),
                 'start' => array(
                     'description' => 'For large data sets, the page number to start at - defaults to 1st page of data (page 0)',
@@ -1535,11 +1591,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'folder_id' => array(
+                'fid' => array(
                     'description' => 'The folder id to delete',
                     'location'    => 'json',
                     'type'        => 'integer',
-                    'sentAs'      => 'fid',
                     'required'    => true
                 ),
                 'type' => array(
@@ -1588,11 +1643,10 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
-                'folder_id' => array(
+                'fid' => array(
                     'description' => 'The folder id to delete',
                     'location'    => 'json',
                     'type'        => 'integer',
-                    'sentAs'      => 'fid',
                     'required'    => true
                 ),
                 'name' => array(
@@ -1812,11 +1866,10 @@ return array(
                     'required'    => false,
                     'enum'        => array('viewer', 'author', 'manager', 'admin')
                 ),
-                'message' => array(
+                'msg' => array(
                     'description' => 'An optional message to include. Plain text any HTML tags will be stripped',
                     'location'    => 'json',
                     'type'        => 'string',
-                    'sentAs'      => 'msg',
                     'required'    => false
                 )
             )

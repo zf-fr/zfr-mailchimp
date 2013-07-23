@@ -1,5 +1,7 @@
 # ZfrMailChimp, a MailChimp PHP Library
 
+[![Latest Stable Version](https://poser.pugx.org/zfr/zfr-mailchimp/v/stable.png)](https://packagist.org/packages/zfr/zfr-mailchimp)
+
 > Note : this library does not contain tests, mainly because I'm not sure about how to write tests for an API
 wrapper. Don't hesitate to help on this ;-).
 
@@ -45,7 +47,7 @@ Then, update your dependencies by typing: `php composer.phar update`.
 
 ## Tutorial
 
-Instantiate the Guzzle client:
+Instantiate the MailChimp client:
 
 ```php
 $client = new MailChimpClient('my-api-key');
@@ -53,7 +55,7 @@ $client = new MailChimpClient('my-api-key');
 
 The correct endpoint will be selected based on your API key.
 
-You can then have access to all the methods available to date:
+You can then have access to all the methods available (see the list below):
 
 ```php
 // Get activity about a list
@@ -70,178 +72,115 @@ $client->addFolder(array(
 
 ### How to use it ?
 
-You will notice that the method names below does not always have a 1-to-1 mapping with the API names. What I wanted
-to do is making the names as natural as possible (for instance, I added "get" in front of most methods). Moreover,
-parameters for each method can be found be reading the ServiceDescription file. For instance, let's take the "Subscribe"
-description:
+You will notice that the method names below does not always have a 1-to-1 mapping with the API names. For instance,
+most method that imply retrieving are prefixed by "get".
 
-```php
-'Subscribe' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => 'lists/subscribe.json',
-            'summary'          => 'Subscribe the given email address to the list',
-            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php',
-            'parameters'       => array(
-                'api_key'  => array(
-                    'description' => 'MailChimp API key',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'sentAs'      => 'apikey',
-                    'required'    => true
-                ),
-                'id' => array(
-                    'description' => 'The list id to connect to',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'required'    => true
-                ),
-                'email' => array(
-                    'description' => 'The email to add',
-                    'location'    => 'json',
-                    'type'        => 'array',
-                    'required'    => true
-                ),
-                'merge_vars' => array(
-                    'description' => 'Optional merge variables to the email',
-                    'location'    => 'json',
-                    'type'        => 'array',
-                    'required'    => false
-                ),
-                'email_type' => array(
-                    'description' => 'Email type preference for the email',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'required'    => false,
-                    'enum'        => array('html', 'text')
-                ),
-                'double_optin' => array(
-                    'description' => 'Flag to control whether to send an opt-in confirmation email - defaults to true',
-                    'location'    => 'json',
-                    'type'        => 'boolean',
-                    'required'    => false
-                ),
-                'update_existing' => array(
-                    'description' => 'Flag to control whether to update members that are already subscribed to the list or to return an error - defaults to false',
-                    'location'    => 'json',
-                    'type'        => 'boolean',
-                    'required'    => false
-                ),
-                'replace_interests' => array(
-                    'description' => 'Flag to determine whether we replace the interest groups with the updated groups provided, or we add the provided groups to the member\'s interest groups - defaults to true',
-                    'location'    => 'json',
-                    'type'        => 'boolean',
-                    'required'    => false
-                ),
-                'send_welcome'    => array(
-                    'description' => 'Decide wether to send a send welcome email',
-                    'location'    => 'json',
-                    'type'        => 'boolean',
-                    'required'    => false
-                )
-            )
-        ),
-```
-
-If you have a look at the [official documentation](http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php) for this method, you can see from both the descriptor and the doc that "email" is in fact an array, and that it accepts "email", "euid" and
-"leid" parameters. You can therefore call this method like that:
+However, there is an exact mapping for parameters. For instance, let's take the subscribe method. The [documentation](http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php)
+describes the list of parameters:
 
 ```php
 $client->subscribe(array(
-	'id'    => 'my-list-id',
-	'email' => array('email' => 'my-address@foo.com')
+    'id' => 'list-id',
+    'email' => array(
+        'email' => 'example@foo.com',
+        'euid'  => '1545d'
+    )
 ));
 ```
 
 ### Complete reference
 
-Here are the supported methods today (you can see that the name sometimes does not match the exact API URL, this
-is to make the library more convenient to use in this context):
+Here are the supported methods today:
 
 CAMPAIGN RELATED METHODS:
 
-* array createCampaign(array $args = array()) {@command MailChimp CreateCampaign}
-* array deleteCampaign(array $args = array()) {@command MailChimp DeleteCampaign}
-* array getCampaignContent(array $args = array()) {@command MailChimp GetCampaignContent}
-* array getCampaigns(array $args = array()) {@command MailChimp GetCampaigns}
-* array getTemplateContent(array $args = array()) {@command MailChimp GetTemplateContent}
-* array pauseCampaign(array $args = array()) {@command MailChimp PauseCampaign}
-* array replicateCampaign(array $args = array()) {@command MailChimp ReplicateCampaign}
-* array resumeCampaign(array $args = array()) {@command MailChimp ResumeCampaign}
-* array scheduleCampaign(array $args = array()) {@command MailChimp ScheduleCampaign}
-* array scheduleBatchCampaign(array $args = array()) {@command MailChimp ScheduleBatchCampaign}
-* array sendCampaign(array $args = array()) {@command MailChimp SendCampaign}
-* array sendTestCampaign(array $args = array()) {@command MailChimp SendTestCampaign}
-* array testSegmentation(array $args = array()) {@command MailChimp TestSegmentation}
-* array unscheduleCampaign(array $args = array()) {@command MailChimp UnscheduleCampaign}
-* array updateCampaign(array $args = array()) {@command MailChimp UpdateCampaign}
+* array createCampaign(array $args = array())
+* array deleteCampaign(array $args = array())
+* array getCampaignContent(array $args = array())
+* array getCampaigns(array $args = array())
+* array getTemplateContent(array $args = array())
+* array pauseCampaign(array $args = array())
+* array replicateCampaign(array $args = array())
+* array resumeCampaign(array $args = array())
+* array scheduleCampaign(array $args = array())
+* array scheduleBatchCampaign(array $args = array())
+* array sendCampaign(array $args = array())
+* array sendTestCampaign(array $args = array())
+* array testSegmentation(array $args = array())
+* array unscheduleCampaign(array $args = array())
+* array updateCampaign(array $args = array())
 
 LIST RELATED METHODS:
 
-* array addInterestGroup(array $args = array()) {@command MailChimp AddInterestGroup}
-* array addInterestGrouping(array $args = array()) {@command MailChimp AddInterestGrouping}
-* array addListMergeVar(array $args = array()) {@command MailChimp AddListMergeVar}
-* array batchSubscribe(array $args = array()) {@command MailChimp BatchSubscribe}
-* array batchUnsubscribe(array $args = array()) {@command MailChimp BatchUnsubscribe}
-* array deleteInterestGroup(array $args = array()) {@command MailChimp DeleteInterestGroup}
-* array deleteInterestGrouping(array $args = array()) {@command MailChimp DeleteInterestGrouping}
-* array deleteListMergeVar(array $args = array()) {@command MailChimp DeleteListMergeVar}
-* array getAbuseReports(array $args = array()) {@command MailChimp GetAbuseReports}
-* array getListActivity(array $args = array()) {@command MailChimp GetListActivity}
-* array getListClients(array $args = array()) {@command MailChimp GetListClients}
-* array getListGrowthHistory(array $args = array()) {@command MailChimp GetListGrowthHistory}
-* array getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
-* array getListMergeVars(array $args = array()) {@command MailChimp GetListMergeVars}
-* array getLists(array $args = array()) {@command MailChimp GetLists}
-* array getListLocations(array $args = array()) {@command MailChimp GetListLocations}
-* array getListMembers(array $args = array()) {@command MailChimp GetListMembers}
-* array getListMembersActivity(array $args = array()) {@command MailChimp GetListMembersActivity}
-* array getListMembersInfo(array $args = array()) {@command MailChimp GetListMembersInfo}
-* array resetListMergeVar(array $args = array()) {@command MailChimp ResetListMergeVar}
-* array setListMergeVar(array $args = array()) {@command MailChimp SetListMergeVar}
-* array subscribe(array $args = array()) {@command MailChimp Subscribe}
-* array unsubscribe(array $args = array()) {@command MailChimp Unsubscribe}
-* array updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
-* array updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}
+* array addInterestGroup(array $args = array())
+* array addInterestGrouping(array $args = array())
+* array addListMergeVar(array $args = array())
+* array addListWebhook(array $args = array())
+* array batchSubscribe(array $args = array())
+* array batchUnsubscribe(array $args = array())
+* array deleteInterestGroup(array $args = array())
+* array deleteInterestGrouping(array $args = array())
+* array deleteListWebhook(array $args = array())
+* array deleteListMergeVar(array $args = array())
+* array getAbuseReports(array $args = array())
+* array getListActivity(array $args = array())
+* array getListClients(array $args = array())
+* array getListGrowthHistory(array $args = array())
+* array getInterestGroupings(array $args = array())
+* array getListMergeVars(array $args = array())
+* array getLists(array $args = array())
+* array getListLocations(array $args = array())
+* array getListMembers(array $args = array())
+* array getListMembersActivity(array $args = array())
+* array getListMembersInfo(array $args = array())
+* array getListWebhooks(array $args = array())
+* array resetListMergeVar(array $args = array())
+* array setListMergeVar(array $args = array())
+* array subscribe(array $args = array())
+* array unsubscribe(array $args = array())
+* array updateInterestGroup(array $args = array())
+* array updateInterestGrouping(array $args = array())
+* array updateListMember(array $args = array())
 
 ECOMM RELATED METHODS:
 
-* array addOrder(array $args = array()) {@command MailChimp AddOrder}
-* array deleteOrder(array $args = array()) {@command MailChimp DeleteOrder}
-* array getOrders(array $args = array()) {@command MailChimp GetOrders}
+* array addOrder(array $args = array())
+* array deleteOrder(array $args = array())
+* array getOrders(array $args = array())
 
 FOLDER RELATED METHODS:
 
-* array addFolder(array $args = array()) {@command MailChimp AddFolder}
-* array deleteFolder(array $args = array()) {@command MailChimp DeleteFolder}
-* array getFolders(array $args = array()) {@command MailChimp GetFolders}
-* array updateFolders(array $args = array()) {@command MailChimp UpdateFolders}
+* array addFolder(array $args = array())
+* array deleteFolder(array $args = array())
+* array getFolders(array $args = array())
+* array updateFolders(array $args = array())
 
 TEMPLATE RELATED METHODS:
 
-* array addTemplate(array $args = array()) {@command MailChimp AddTemplate}
-* array deleteTemplate(array $args = array()) {@command MailChimp DeleteTemplate}
-* array getTemplateInfo(array $args = array()) {@command MailChimp GetTemplateInfo}
-* array getTemplates(array $args = array()) {@command MailChimp GetTemplates}
-* array undeleteTemplate(array $args = array()) {@command MailChimp UndeleteTemplate}
-* array updateTemplate(array $args = array()) {@command MailChimp UpdateTemplate}
+* array addTemplate(array $args = array())
+* array deleteTemplate(array $args = array())
+* array getTemplateInfo(array $args = array())
+* array getTemplates(array $args = array())
+* array undeleteTemplate(array $args = array())
+* array updateTemplate(array $args = array())
 
 USERS RELATED METHODS:
 
-* array inviteUser(array $args = array()) {@command MailChimp InviteUser}
-* array getInvitations(array $args = array()) {@command MailChimp GetInvitations}
-* array getLogins(array $args = array()) {@command MailChimp GetLogins}
-* array reinviteUser(array $args = array()) {@command MailChimp ReinviteUser}
-* array revokeLogin(array $args = array()) {@command MailChimp RevokeLogin}
-* array revokeUserInvitation(array $args = array()) {@command MailChimp RevokeUserInvitation}
+* array inviteUser(array $args = array())
+* array getInvitations(array $args = array())
+* array getLogins(array $args = array())
+* array reinviteUser(array $args = array())
+* array revokeLogin(array $args = array())
+* array revokeUserInvitation(array $args = array())
 
 VIP RELATED METHODS:
 
-* array addVipMembers(array $args = array()) {@command MailChimp AddVipMembers}
-* array deleteVipMembers(array $args = array()) {@command MailChimp DeleteVipMembers}
-* array getVipMembers(array $args = array()) {@command MailChimp GetVipMembers}
-* array getVipActivity(array $args = array()) {@command MailChimp GetVipActivity}
+* array addVipMembers(array $args = array())
+* array deleteVipMembers(array $args = array())
+* array getVipMembers(array $args = array())
+* array getVipActivity(array $args = array())
 
 HELPER RELATED METHODS:
 
-* array getAccountDetails(array $args = array()) {@command MailChimp GetAccountDetails}
-* array ping(array $args = array()) {@command MailChimp Ping}
+* array getAccountDetails(array $args = array())
+* array ping(array $args = array())
