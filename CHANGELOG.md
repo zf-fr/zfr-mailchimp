@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.0-beta3
+
+* Add list static segment
+
 ## 1.0.0-beta2
 
 * [BC] Change some parameters name in the service description so that there is always an exact 1-to-1 mapping

@@ -57,11 +57,12 @@ use ZfrMailChimp\Version;
  * @method array deleteListMergeVar(array $args = array()) {@command MailChimp DeleteListMergeVar}
  * @method array deleteListWebhook(array $args = array()) {@command MailChimp DeleteListWebhook}
  * @method array getAbuseReports(array $args = array()) {@command MailChimp GetAbuseReports}
+ * @method array getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
  * @method array getListActivity(array $args = array()) {@command MailChimp GetListActivity}
  * @method array getListClients(array $args = array()) {@command MailChimp GetListClients}
  * @method array getListGrowthHistory(array $args = array()) {@command MailChimp GetListGrowthHistory}
- * @method array getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
  * @method array getListMergeVars(array $args = array()) {@command MailChimp GetListMergeVars}
+ * @method array getListStaticSegments(array $args = array()) {@command MailChimp GetListStaticSegments}
  * @method array getLists(array $args = array()) {@command MailChimp GetLists}
  * @method array getListLocations(array $args = array()) {@command MailChimp GetListLocations}
  * @method array getListMembers(array $args = array()) {@command MailChimp GetListMembers}

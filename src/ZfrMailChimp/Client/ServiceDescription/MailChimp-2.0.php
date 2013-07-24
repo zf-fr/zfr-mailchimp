@@ -849,6 +849,56 @@ return array(
             )
         ),
 
+        'GetInterestGroupings' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/interest-groupings.json',
+            'summary'          => 'Get the interest groupings',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-groupings.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'counts' => array(
+                    'description' => 'Whether or not to return subscriber counts for each group. Defaults to false since that slows this call down a ton for large lists.',
+                    'location'    => 'json',
+                    'type'        => 'boolean',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'GetListMergeVars' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/merge-vars.json',
+            'summary'          => 'Get the list of merge tags for a given list, including their name, tag, and required setting',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-vars.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to retrieve merge vars for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+            )
+        ),
+
         'GetListActivity' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/activity.json',
@@ -912,56 +962,6 @@ return array(
                     'type'        => 'string',
                     'required'    => true
                 )
-            )
-        ),
-
-        'GetInterestGroupings' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => 'lists/interest-groupings.json',
-            'summary'          => 'Get the interest groupings',
-            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-groupings.php',
-            'parameters'       => array(
-                'api_key'  => array(
-                    'description' => 'MailChimp API key',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'sentAs'      => 'apikey',
-                    'required'    => true
-                ),
-                'id' => array(
-                    'description' => 'The list id to connect to',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'required'    => true
-                ),
-                'counts' => array(
-                    'description' => 'Whether or not to return subscriber counts for each group. Defaults to false since that slows this call down a ton for large lists.',
-                    'location'    => 'json',
-                    'type'        => 'boolean',
-                    'required'    => false
-                )
-            )
-        ),
-
-        'GetListMergeVars' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => 'lists/merge-vars.json',
-            'summary'          => 'Get the list of merge tags for a given list, including their name, tag, and required setting',
-            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-vars.php',
-            'parameters'       => array(
-                'api_key'  => array(
-                    'description' => 'MailChimp API key',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'sentAs'      => 'apikey',
-                    'required'    => true
-                ),
-                'id' => array(
-                    'description' => 'The list id to retrieve merge vars for',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'required'    => true
-                ),
             )
         ),
 
@@ -1127,6 +1127,28 @@ return array(
                     'type'        => 'array',
                     'required'    => true,
                     'maxItems'    => 50
+                )
+            )
+        ),
+
+        'GetListStaticSegments' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/static-segments.json',
+            'summary'          => 'Get all the static segments for a given list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segments.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
                 )
             )
         ),
