@@ -62,12 +62,12 @@ use ZfrMailChimp\Version;
  * @method array getListClients(array $args = array()) {@command MailChimp GetListClients}
  * @method array getListGrowthHistory(array $args = array()) {@command MailChimp GetListGrowthHistory}
  * @method array getListMergeVars(array $args = array()) {@command MailChimp GetListMergeVars}
- * @method array getListStaticSegments(array $args = array()) {@command MailChimp GetListStaticSegments}
  * @method array getLists(array $args = array()) {@command MailChimp GetLists}
  * @method array getListLocations(array $args = array()) {@command MailChimp GetListLocations}
  * @method array getListMembers(array $args = array()) {@command MailChimp GetListMembers}
  * @method array getListMembersActivity(array $args = array()) {@command MailChimp GetListMembersActivity}
  * @method array getListMembersInfo(array $args = array()) {@command MailChimp GetListMembersInfo}
+ * @method array getListStaticSegments(array $args = array()) {@command MailChimp GetListStaticSegments}
  * @method array getListWebhooks(array $args = array()) {@command MailChimp GetListWebhooks}
  * @method array resetListMergeVar(array $args = array()) {@command MailChimp ResetListMergeVar}
  * @method array setListMergeVar(array $args = array()) {@command MailChimp SetListMergeVar}

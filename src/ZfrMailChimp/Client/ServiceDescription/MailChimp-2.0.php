@@ -609,9 +609,9 @@ return array(
 
         'AddListWebhook' => array(
             'httpMethod'       => 'POST',
-            'uri'              => 'lists/webhook-del.json',
-            'summary'          => 'Delete an existing webhook URL from the given list',
-            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhook-del.php',
+            'uri'              => 'lists/webhook-add.json',
+            'summary'          => 'Add a new webhook URL to the given list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhook-add.php',
             'parameters'       => array(
                 'api_key'  => array(
                     'description' => 'MailChimp API key',
@@ -630,6 +630,18 @@ return array(
                     'description' => 'A valid URL for the webhook',
                     'location'    => 'json',
                     'type'        => 'string',
+                    'required'    => true
+                ),
+                'actions' => array(
+                    'description' => 'Actions to fire this webhook for',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                ),
+                'sources' => array(
+                    'description' => 'Sources to fire this webhook for',
+                    'location'    => 'json',
+                    'type'        => 'array',
                     'required'    => true
                 )
             )
@@ -812,6 +824,34 @@ return array(
             )
         ),
 
+        'DeleteListWebhook' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/webhook-del.json',
+            'summary'          => 'Delete an existing webhook URL from the given list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhook-del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'url' => array(
+                    'description' => 'A valid URL for the webhook',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                )
+            )
+        ),
+
         'GetAbuseReports' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/abuse-reports.json',
@@ -874,28 +914,6 @@ return array(
                     'type'        => 'boolean',
                     'required'    => false
                 )
-            )
-        ),
-
-        'GetListMergeVars' => array(
-            'httpMethod'       => 'POST',
-            'uri'              => 'lists/merge-vars.json',
-            'summary'          => 'Get the list of merge tags for a given list, including their name, tag, and required setting',
-            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-vars.php',
-            'parameters'       => array(
-                'api_key'  => array(
-                    'description' => 'MailChimp API key',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'sentAs'      => 'apikey',
-                    'required'    => true
-                ),
-                'id' => array(
-                    'description' => 'The list id to retrieve merge vars for',
-                    'location'    => 'json',
-                    'type'        => 'string',
-                    'required'    => true
-                ),
             )
         ),
 
@@ -962,6 +980,28 @@ return array(
                     'type'        => 'string',
                     'required'    => true
                 )
+            )
+        ),
+
+        'GetListMergeVars' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/merge-vars.json',
+            'summary'          => 'Get the list of merge tags for a given list, including their name, tag, and required setting',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-vars.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to retrieve merge vars for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
             )
         ),
 

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.0.0-beta3
+## 1.0.0
 
 * Add list static segment
 
