@@ -99,6 +99,15 @@ use ZfrMailChimp\Version;
  * @method array undeleteTemplate(array $args = array()) {@command MailChimp UndeleteTemplate}
  * @method array updateTemplate(array $args = array()) {@command MailChimp UpdateTemplate}
  *
+ * ABUSE RELATED METHODS:
+ *
+ * @method array getCampaignAbuseReport(array $args = array()) {@command MailChimp GetCampaignAbuseReport}
+ * @method array getCampaignAdviceReport(array $args = array()) {@command MailChimp GetCampaignAdviceReport}
+ * @method array getCampaignBounceMessage(array $args = array()) {@command MailChimp GetCampaignBounceMessage}
+ * @method array getCampaignBounceMessages(array $args = array()) {@command MailChimp GetCampaignBounceMessages}
+ * @method array getCampaignSummaryReport(array $args = array()) {@command MailChimp GetCampaignSummaryReport}
+ * @method array getCampaignGoogleAnalyticsReport(array $args = array()) {@command MailChimp GetCampaignGoogleAnalyticsReport}
+ *
  * USERS RELATED METHODS:
  *
  * @method array inviteUser(array $args = array()) {@command MailChimp InviteUser}
@@ -114,6 +123,10 @@ use ZfrMailChimp\Version;
  * @method array deleteVipMembers(array $args = array()) {@command MailChimp DeleteVipMembers}
  * @method array getVipMembers(array $args = array()) {@command MailChimp GetVipMembers}
  * @method array getVipActivity(array $args = array()) {@command MailChimp GetVipActivity}
+ *
+ * GALLERY RELATED METHOD:
+ *
+ * @method array getGalleryImages(array $args = array()) {@command MailChimp GetGalleryImages}
  *
  * HELPER RELATED METHODS:
  *

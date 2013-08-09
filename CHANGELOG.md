@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.1.0
+
+* Remove unused ExceptionInterface. Exceptions are currently not wrapped around a specific ZfrMailChimp exception
+* Added getGalleryMethod
+* Added some methods for reports: getCampaignAbuseReport, getCampaignAdviceReport, getCampaignBounceMessage,
+getCampaignBounceMessages, getCampaignSummaryReport and getCampaignGoogleAnalyticsReport
+* Bump Guzzle dependency to 3.5
+
 ## 1.0.0
 
 * Add list static segment

@@ -1898,6 +1898,162 @@ return array(
 
         /**
          * --------------------------------------------------------------------------------
+         * REPORTS RELATED OPERATIONS
+         * --------------------------------------------------------------------------------
+         */
+
+        'GetCampaignAbuseReport' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'reports/abuse.json',
+            'summary'          => 'Get all email addresses that complained about a given campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/abuse.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'cid' => array(
+                    'description' => 'Campaign id to pull abuse report for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'opts' => array(
+                    'description' => 'Optional options to control returned data',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'GetCampaignAdviceReport' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'reports/advice.json',
+            'summary'          => 'Retrieve the text presented in MailChimp app for how a campaign performed and any advice they may have for you',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/advice.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'cid' => array(
+                    'description' => 'Campaign id to pull abuse report for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetCampaignBounceMessage' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'reports/bounce-message.json',
+            'summary'          => 'Retrieve the most recent full bounce message for a specific email address on the given campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/bounce-message.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'cid' => array(
+                    'description' => 'Campaign id to pull bounce for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'email' => array(
+                    'description' => 'An array containing data about the email',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetCampaignBounceMessages' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'reports/bounce-messages.json',
+            'summary'          => 'Retrieve the bounce messages for a given campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/bounce-messages.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'cid' => array(
+                    'description' => 'Campaign id to pull bounce for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'opts' => array(
+                    'description' => 'Optional options to control returned data',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'GetCampaignSummaryReport' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'reports/summary.json',
+            'summary'          => 'Retrieve aggregate campaign statistics (opens, bounces, clicks...)',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/summary.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'cid' => array(
+                    'description' => 'Campaign id to pull stats for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetCampaignGoogleAnalyticsReport' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'reports/google-analytics.json',
+            'summary'          => 'Retrieve the Google Analytics data for this campaign',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/google-analytics.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'cid' => array(
+                    'description' => 'Campaign id to pull Google Analytics report for',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                )
+            )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
          * USERS RELATED OPERATIONS
          * --------------------------------------------------------------------------------
          */
@@ -2128,6 +2284,34 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
+            )
+        ),
+
+        /**
+         * --------------------------------------------------------------------------------
+         * GALLERY RELATED OPERATION
+         * --------------------------------------------------------------------------------
+         */
+
+        'GetGalleryImages' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'gallery/list.json',
+            'summary'          => 'Get a list of gallery images, optionally filtered by criterias',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/gallery/list.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'opts' => array(
+                    'description' => 'Optional options to filter gallery images',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
             )
         ),
 

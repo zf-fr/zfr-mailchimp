@@ -19,13 +19,15 @@ The following methods are supported by the client (not everything has been caref
 * Vip related methods (complete)
 * Folder related methods (complete)
 * Users related methods (complete)
+* Report related methods (only main methods)
 * Templates related methods (complete)
 * List related methods (nearly complete)
+* Gallery related methods (complete)
 * Helper related methods (partially complete)
 
 ## Dependencies
 
-* [Guzzle library](http://guzzlephp.org): >= 3.4
+* [Guzzle library](http://guzzlephp.org): >= 3.5
 
 ## Integration with frameworks
 
@@ -163,6 +165,15 @@ TEMPLATE RELATED METHODS:
 * array undeleteTemplate(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/templates/undel.php)
 * array updateTemplate(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/templates/update.php)
 
+REPORT RELATED METHODS:
+
+* array getCampaignAbuseReport(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/reports/abuse.php)
+* array getCampaignAdviceReport(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/reports/advice.php)
+* array getCampaignBounceMessage(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/reports/bounce-message.php)
+* array getCampaignBounceMessages(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/reports/bounce-messages.php)
+* array getCampaignSummaryReport(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/reports/summary.php)
+* array getCampaignGoogleAnalyticsReport(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/reports/google-analytics.php)
+
 USERS RELATED METHODS:
 
 * array inviteUser(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/users/invite.php)
@@ -178,6 +189,10 @@ VIP RELATED METHODS:
 * array deleteVipMembers(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/vip/del.php)
 * array getVipMembers(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/vip/members.php)
 * array getVipActivity(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/vip/activity.php)
+
+GALLERY RELATED METHODS:
+
+* array getGalleryImages(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/gallery/list.php)
 
 HELPER RELATED METHODS:
 
