@@ -33,7 +33,8 @@ The following methods are supported by the client (not everything has been caref
 
 To make this library even more easier to use, here are various frameworks integrations:
 
-* [ZfrMailChimpModule](https://github.com/zf-fr/zfr-mailchimp-module): this is a Zend Framework 2 module
+* [ZfrMailChimpModule](https://github.com/zf-fr/zfr-mailchimp-module): a Zend Framework 2 module
+* [ZfrMailChimpBundle](https://github.com/zf-fr/zfr-mailchimp-bundle): a Symfony 2 bundle
 
 Want to do an integration for another framework? Open an issue, and I'll open a repository for you!
 
