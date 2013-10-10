@@ -1478,6 +1478,12 @@ return array(
                     'sentAs'      => 'apikey',
                     'required'    => true
                 ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
                 'email' => array(
                     'description' => 'An array containing data about the email',
                     'location'    => 'json',
