@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.1
+
+* Missing "id" parameter for "UpdateListMember" method.
+
 ## 1.1.0
 
 * Remove unused ExceptionInterface. Exceptions are currently not wrapped around a specific ZfrMailChimp exception
