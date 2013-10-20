@@ -607,6 +607,34 @@ return array(
             )
         ),
 
+        'AddListSegment' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/segment-add.json',
+            'summary'          => 'Save a segment against a list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-add.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'opts' => array(
+                    'description' => 'Options for the new segment',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
         'AddListWebhook' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/webhook-add.json',
@@ -820,6 +848,34 @@ return array(
                     'type'        => 'string',
                     'required'    => true,
                     'pattern'     => '/^[a-zA-Z0-9_]+$/'
+                )
+            )
+        ),
+
+        'DeleteListSegment' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/segment-del.json',
+            'summary'          => 'Delete a list segment',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'seg_id' => array(
+                    'description' => 'The segment id to delete',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
                 )
             )
         ),
@@ -1171,6 +1227,35 @@ return array(
             )
         ),
 
+        'GetListSegments' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/segments.json',
+            'summary'          => 'Get all the segments for a given list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segments.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'type' => array(
+                    'description' => 'Should be either "static" or "saved"',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false,
+                    'enum'        => array('static', 'saved')
+                )
+            )
+        ),
+
         'GetListStaticSegments' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/static-segments.json',
@@ -1344,6 +1429,34 @@ return array(
             )
         ),
 
+        'TestListSegment' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/segment-test.json',
+            'summary'          => 'Allow to test segmentation rules before creating a campaign using them',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-test.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'list_id' => array(
+                    'description' => 'The list id to test segmentation on',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'options' => array(
+                    'description' => 'Options for testing the segment',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => false
+                )
+            )
+        ),
+
         'Unsubscribe' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/unsubscribe.json',
@@ -1507,6 +1620,40 @@ return array(
                     'description' => 'Flag to determine whether we replace the interest groups with the updated groups provided, or we add the provided groups to the member\'s interest groups - defaults to true',
                     'location'    => 'json',
                     'type'        => 'boolean',
+                    'required'    => false
+                )
+            )
+        ),
+
+        'UpdateListSegment' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/segment-update.json',
+            'summary'          => 'Update an existing segment (the list and type can not be changed)',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-update.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'seg_id' => array(
+                    'description' => 'The segment id to update',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                ),
+                'opts' => array(
+                    'description' => 'Options for the new segment',
+                    'location'    => 'json',
+                    'type'        => 'array',
                     'required'    => false
                 )
             )
@@ -2120,6 +2267,22 @@ return array(
             'uri'              => 'users/logins.json',
             'summary'          => 'Retrieve the list of active logins',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/logins.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                )
+            )
+        ),
+
+        'GetProfile' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'users/profile.json',
+            'summary'          => 'Retrieve the profile for the login owning the provided API Key',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/profile.php',
             'parameters'       => array(
                 'api_key'  => array(
                     'description' => 'MailChimp API key',
