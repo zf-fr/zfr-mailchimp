@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.0
+
+* Added "GetProfile" method (allow to retrieve information about the profile that owns the API key)
+* Added "GetListSegments", "AddListSegment", "DeleteListSegment", "UpdateListSegment" and "TestListSegment"
+
 ## 1.1.1
 
 * Missing "id" parameter for "UpdateListMember" method.

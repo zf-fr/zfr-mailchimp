@@ -49,12 +49,14 @@ use ZfrMailChimp\Version;
  * @method array addInterestGroup(array $args = array()) {@command MailChimp AddInterestGroup}
  * @method array addInterestGrouping(array $args = array()) {@command MailChimp AddInterestGrouping}
  * @method array addListMergeVar(array $args = array()) {@command MailChimp AddListMergeVar}
+ * @method array addListSegment(array $args = array()) {@command MailChimp AddListSegment}
  * @method array addListWebhook(array $args = array()) {@command MailChimp AddListWebhook}
  * @method array batchSubscribe(array $args = array()) {@command MailChimp BatchSubscribe}
  * @method array batchUnsubscribe(array $args = array()) {@command MailChimp BatchUnsubscribe}
  * @method array deleteInterestGroup(array $args = array()) {@command MailChimp DeleteInterestGroup}
  * @method array deleteInterestGrouping(array $args = array()) {@command MailChimp DeleteInterestGrouping}
  * @method array deleteListMergeVar(array $args = array()) {@command MailChimp DeleteListMergeVar}
+ * @method array deleteListSegment(array $args = array()) {@command MailChimp DeleteListSegment}
  * @method array deleteListWebhook(array $args = array()) {@command MailChimp DeleteListWebhook}
  * @method array getAbuseReports(array $args = array()) {@command MailChimp GetAbuseReports}
  * @method array getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
@@ -67,15 +69,18 @@ use ZfrMailChimp\Version;
  * @method array getListMembers(array $args = array()) {@command MailChimp GetListMembers}
  * @method array getListMembersActivity(array $args = array()) {@command MailChimp GetListMembersActivity}
  * @method array getListMembersInfo(array $args = array()) {@command MailChimp GetListMembersInfo}
+ * @method array getListSegments(array $args = array()) {@command MailChimp GetListSegments}
  * @method array getListStaticSegments(array $args = array()) {@command MailChimp GetListStaticSegments}
  * @method array getListWebhooks(array $args = array()) {@command MailChimp GetListWebhooks}
  * @method array resetListMergeVar(array $args = array()) {@command MailChimp ResetListMergeVar}
  * @method array setListMergeVar(array $args = array()) {@command MailChimp SetListMergeVar}
  * @method array subscribe(array $args = array()) {@command MailChimp Subscribe}
+ * @method array testListSegment(array $args = array()) {@command MailChimp TestListSegment}
  * @method array unsubscribe(array $args = array()) {@command MailChimp Unsubscribe}
  * @method array updateInterestGroup(array $args = array()) {@command MailChimp UpdateInterestGroup}
  * @method array updateInterestGrouping(array $args = array()) {@command MailChimp UpdateInterestGrouping}
  * @method array updateListMember(array $args = array()) {@command MailChimp UpdateListMember}
+ * @method array updateListSegment(array $args = array()) {@command MailChimp UpdateListSegment}
  *
  * ECOMM RELATED METHODS:
  *
@@ -113,6 +118,7 @@ use ZfrMailChimp\Version;
  * @method array inviteUser(array $args = array()) {@command MailChimp InviteUser}
  * @method array getInvitations(array $args = array()) {@command MailChimp GetInvitations}
  * @method array getLogins(array $args = array()) {@command MailChimp GetLogins}
+ * @method array getProfile(array $args = array()) {@command MailChimp GetProfile}
  * @method array reinviteUser(array $args = array()) {@command MailChimp ReinviteUser}
  * @method array revokeLogin(array $args = array()) {@command MailChimp RevokeLogin}
  * @method array revokeUserInvitation(array $args = array()) {@command MailChimp RevokeUserInvitation}
