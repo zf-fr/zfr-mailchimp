@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.0.0
+
+* [BC] Guzzle exceptions have been replaced in favour of more meaningful exceptions
+* [BC] Remove `Version` class
+
 ## 1.2.0
 
 * Added "GetProfile" method (allow to retrieve information about the profile that owns the API key)

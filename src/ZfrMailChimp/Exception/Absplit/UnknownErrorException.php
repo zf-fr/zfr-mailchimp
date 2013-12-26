@@ -16,13 +16,15 @@
  * and is licensed under the MIT license.
  */
 
-namespace ZfrMailChimp;
+namespace ZfrMailChimp\Exception\Absplit;
+
+use RuntimeException;
+use ZfrMailChimp\Exception\ExceptionInterface;
 
 /**
- * @author Michaël Gallego
+ * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class Version
+class UnknownErrorException extends RuntimeException implements ExceptionInterface
 {
-    const VERSION = '1.1.0';
-}
+} 

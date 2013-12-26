@@ -20,8 +20,7 @@ namespace ZfrMailChimp\Client;
 
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
-use Guzzle\Service\Resource\Model;
-use ZfrMailChimp\Version;
+use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
 
 /**
  * MailChimp client to interact with MailChimp API
@@ -139,7 +138,7 @@ use ZfrMailChimp\Version;
  * @method array getAccountDetails(array $args = array()) {@command MailChimp GetAccountDetails}
  * @method array ping(array $args = array()) {@command MailChimp Ping}
  *
- * @author Michaël Gallego
+ * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
 class MailChimpClient extends Client
@@ -168,11 +167,13 @@ class MailChimpClient extends Client
         )));
 
         // Prefix the User-Agent by SDK version
-        $this->setUserAgent('zfr-mailchimp-php/' . Version::VERSION, true);
+        $this->setUserAgent('zfr-mailchimp-php', true);
 
         // The base URL depends on the API key
         $parts = explode('-', $apiKey);
         $this->setBaseUrl(sprintf('https://%s.api.mailchimp.com/%s', end($parts), $version));
+
+        $this->getEventDispatcher()->addSubscriber(new ErrorHandlerListener());
     }
 
     /**
