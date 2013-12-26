@@ -89,6 +89,37 @@ $client->subscribe(array(
 ));
 ```
 
+### Exceptions handling
+
+ZfrMailChimp tries its best to extract meaningful exceptions from MailChimp errors. All exceptions implement the
+`ZfrMailChimp\Exception\ExceptionInterface` interface, so you can use this to do a catch all block. You can find an
+exhaustive list of all exceptions in the `ZfrMailChimp\Exception` folder.
+
+> List exceptions are under the Ls namespace, because list is a reserved keyword in PHP.
+
+Usage example:
+
+```php
+try {
+    $client->subscribe(array(
+        'id' => 'list-id',
+        'email' => array(
+            'email' => 'example@foo.com',
+            'euid'  => '1545d'
+        )
+    ));
+} catch (\ZfrMailChimp\Exception\Ls\AlreadySubscribedException $e) {
+    $message = $e->getMessage();
+
+    // You can do something interesting here!
+} catch(\ZfrMailChimp\Exception\Ls\DoesNotExist $e) {
+    // Do something else useful!
+}
+catch (\ZfrMailChimp\Exception\ExceptionInterface $e) {
+    // Any other exception that may occur
+}
+```
+
 ### Complete reference
 
 Here are the supported methods today:
