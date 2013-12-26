@@ -16,14 +16,20 @@
  * and is licensed under the MIT license.
  */
 
-namespace ZfrMailChimp\Exception;
+ini_set('error_reporting', E_ALL);
 
-use RuntimeException;
+$files = [__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php'];
 
-/**
- * @author  Michaël Gallego <mic.gallego@gmail.com>
- * @licence MIT
- */
-class RequestTimedOut extends RuntimeException implements ExceptionInterface
-{
-} 
+foreach ($files as $file) {
+    if (file_exists($file)) {
+        $loader = require $file;
+
+        break;
+    }
+}
+
+if (! isset($loader)) {
+    throw new RuntimeException('vendor/autoload.php could not be found. Did you install via composer?');
+}
+
+$loader->add('ZfrMailChimpTest\\', __DIR__);

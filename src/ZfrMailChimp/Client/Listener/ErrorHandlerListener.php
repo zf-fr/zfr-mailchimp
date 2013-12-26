@@ -92,7 +92,7 @@ class ErrorHandlerListener implements EventSubscriberInterface
         'MC_InvalidPayment'               => 'ZfrMailChimp\Exception\MC\InvalidPaymentException',
         'MC_PastedList_Duplicate'         => 'ZfrMailChimp\Exception\MC\DuplicateException',
         'MC_PastedList_InvalidImport'     => 'ZfrMailChimp\Exception\MC\InvalidImportException',
-        'MC_SearchException'              => 'ZfrMailChimp\Exception\MC\SearchExceptionException',
+        'MC_SearchException'              => 'ZfrMailChimp\Exception\MC\SearchException',
         'Max_Size_Reached'                => 'ZfrMailChimp\Exception\MaxSizeReachedException',
         'Module_Unknown'                  => 'ZfrMailChimp\Exception\UnknownModuleException',
         'MonthlyPlan_Unknown'             => 'ZfrMailChimp\Exception\UnknownMonthlyPlanException',
