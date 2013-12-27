@@ -129,7 +129,7 @@ class ErrorHandlerListener implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        return array('command.after_send' => 'handleError');
+        return array('request.exception' => 'handleError');
     }
 
     /**
