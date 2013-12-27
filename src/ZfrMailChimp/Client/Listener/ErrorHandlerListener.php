@@ -140,15 +140,13 @@ class ErrorHandlerListener implements EventSubscriberInterface
      */
     public function handleError(Event $event)
     {
-        /* @var \Guzzle\Service\Command\CommandInterface $command */
-        $command  = $event['command'];
-        $response = $command->getResponse();
-
+        $response = $event['response'];
+        
         if ($response->getStatusCode() === 200) {
             return;
         }
 
-        $result    = $command->toArray();
+        $result    = json_decode($response->getBody(), true);
         $errorName = isset($result['name']) ? $result['name'] : 'Unknown_Exception';
 
         throw new $this->errorMap[$errorName]($result['error'], $result['code']);
