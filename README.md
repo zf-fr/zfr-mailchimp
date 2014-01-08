@@ -43,7 +43,7 @@ Want to do an integration for another framework? Open an issue, and I'll open a 
 We recommend you to use Composer to install ZfrMailChimp:
 
 ```sh
-php composer.phar require zfr/zfr-mailchimp:1.*
+php composer.phar require zfr/zfr-mailchimp:2.*
 ```
 
 ## Tutorial
