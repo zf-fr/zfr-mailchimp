@@ -675,6 +675,40 @@ return array(
             )
         ),
 
+        'AddStaticSegmentMembers' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/static-segment-members-add.json',
+            'summary'          => 'Add list members to a static segment.',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-members-add.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'seg_id' => array(
+                    'description' => 'The id of the static segment to reset',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                ),
+                'batch' => array(
+                    'description' => 'Array of structs for each address',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+            ),
+        ),
+
         'BatchSubscribe' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/batch-subscribe.json',
@@ -1327,6 +1361,34 @@ return array(
                     'pattern'     => '/^[a-zA-Z0-9_]+$/'
                 )
             )
+        ),
+
+        'ResetStaticSegment' => array(
+            'httpMethod'        => 'POST',
+            'uri'               => 'lists/static-segment-reset.json',
+            'summary'           => 'Resets a static segment - removes all members from the static segment. Note: does not actually affect list member data',
+            'documentationUrl'  => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-reset.php',
+            'parameters'        => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'seg_id' => array(
+                    'description' => 'The id of the static segment to reset',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                ),
+            ),
         ),
 
         'SetListMergeVar' => array(

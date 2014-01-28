@@ -50,6 +50,7 @@ use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
  * @method array addListMergeVar(array $args = array()) {@command MailChimp AddListMergeVar}
  * @method array addListSegment(array $args = array()) {@command MailChimp AddListSegment}
  * @method array addListWebhook(array $args = array()) {@command MailChimp AddListWebhook}
+ * @method array addStaticSegmentMembers(array $args = array()) {@command MailChimp AddStaticSegmentMembers}
  * @method array batchSubscribe(array $args = array()) {@command MailChimp BatchSubscribe}
  * @method array batchUnsubscribe(array $args = array()) {@command MailChimp BatchUnsubscribe}
  * @method array deleteInterestGroup(array $args = array()) {@command MailChimp DeleteInterestGroup}
@@ -72,6 +73,7 @@ use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
  * @method array getListStaticSegments(array $args = array()) {@command MailChimp GetListStaticSegments}
  * @method array getListWebhooks(array $args = array()) {@command MailChimp GetListWebhooks}
  * @method array resetListMergeVar(array $args = array()) {@command MailChimp ResetListMergeVar}
+ * @method array resetStaticSegment(array $args = array()) {@command MailChimp ResetStaticSegment}
  * @method array setListMergeVar(array $args = array()) {@command MailChimp SetListMergeVar}
  * @method array subscribe(array $args = array()) {@command MailChimp Subscribe}
  * @method array testListSegment(array $args = array()) {@command MailChimp TestListSegment}
