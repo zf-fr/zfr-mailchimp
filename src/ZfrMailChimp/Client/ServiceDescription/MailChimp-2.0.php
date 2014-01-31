@@ -1316,7 +1316,7 @@ return array(
 
         'GetListWebhooks' => array(
             'httpMethod'       => 'POST',
-            'uri'              => 'lists/webhook.json',
+            'uri'              => 'lists/webhooks.json',
             'summary'          => 'Get all the webhooks URL for the given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhooks.php',
             'parameters'       => array(
