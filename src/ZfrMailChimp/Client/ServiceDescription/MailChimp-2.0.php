@@ -561,7 +561,9 @@ return array(
                     'enum'        => array('checkboxes', 'hidden', 'dropdown', 'radio')
                 ),
                 'groups' => array(
-                    'description' => 'The lists of initial group names to be added - at least 1 is required and the names must be unique within a grouping. If the number takes you over the 60 group limit, an error will be thrown.'
+                    'description' => 'The lists of initial group names to be added - at least 1 is required and the names must be unique within a grouping. If the number takes you over the 60 group limit, an error will be thrown.',
+                    'location'    => 'json',
+                    'required'    => true
                 )
             )
         ),
