@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.0.1
+
+* Fix wrong URL endpoint for list webhooks [#12](https://github.com/zf-fr/zfr-mailchimp/pull/12)
+* Fix a bug with AddInterestGrouping method [#11](https://github.com/zf-fr/zfr-mailchimp/pull/11)
+* Add missing `AddStaticSegmentMembers` and `ResetStaticSegment` methods [#9](https://github.com/zf-fr/zfr-mailchimp/pull/9)
+
 ## 2.0.0
 
 * [BC] Guzzle exceptions have been replaced in favour of more meaningful exceptions
