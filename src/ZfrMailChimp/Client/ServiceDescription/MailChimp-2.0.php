@@ -1091,7 +1091,7 @@ return array(
                 'id' => array(
                     'description' => 'The list id to retrieve merge vars for',
                     'location'    => 'json',
-                    'type'        => 'string',
+                    'type'        => 'array',
                     'required'    => true
                 ),
             )
