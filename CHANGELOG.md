@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.2
+
+* Fix wrong parameter type for get list merge vars [#13](https://github.com/zf-fr/zfr-mailchimp/pull/13)
+
 ## 2.0.1
 
 * Fix wrong URL endpoint for list webhooks [#12](https://github.com/zf-fr/zfr-mailchimp/pull/12)
