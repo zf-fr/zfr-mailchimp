@@ -18,13 +18,16 @@
 
 namespace ZfrMailChimp\Client\Listener;
 
-use Guzzle\Common\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Guzzle\Common\Event;
+use Guzzle\Http\Message\Response;
+use ZfrMailChimp\Exception\ExceptionInterface;
 
 /**
  * Map MailChimp error codes to exceptions
  *
- * @author  Michaël Gallego <mic.gallego@gmail.com>
+ * @author Michaël Gallego <mic.gallego@gmail.com>
+ * @author Slava Fomin II <s.fomin@betsol.ru>
  * @licence MIT
  */
 class ErrorHandlerListener implements EventSubscriberInterface
@@ -133,22 +136,47 @@ class ErrorHandlerListener implements EventSubscriberInterface
     }
 
     /**
+     * Trying to detect MailChimp errors and throw more specific exceptions.
+     *
      * @internal
      * @param  Event $event
+     * @throws \RuntimeException
+     * @throws ExceptionInterface
      * @return void
-     * @throws \ZfrMailChimp\Exception\ExceptionInterface
      */
     public function handleError(Event $event)
     {
+        /** @var Response $response */
         $response = $event['response'];
-        
-        if ($response->getStatusCode() === 200) {
-            return;
+
+        // All MailChimp error responses have a body and non-200 HTTP code.
+        if (null !== $response && 200 !== $response->getStatusCode()) {
+            // MailChimp body is in JSON, decoding it.
+            $result = json_decode($response->getBody(), true);
+            if (JSON_ERROR_NONE !== json_last_error() || !is_array($result)) {
+                throw new \RuntimeException('Failed to decode JSON from MailChimp response.');
+            }
+
+            // Name field contains a name of the error.
+            if (isset($result['name'])) {
+                $errorName = $result['name'];
+
+                // Getting exception's name from the list of known errors.
+                $exceptionName = (isset($this->errorMap[$errorName]) ?
+                    $this->errorMap[$errorName] :
+                    $this->errorMap['Unknown_Exception']
+                );
+
+                // Throwing detected exception.
+                throw new $exceptionName(
+                    (isset($result['error']) ? $result['error'] : ''),
+                    (isset($result['code'])  ? $result['code']  : 0)
+                );
+            }
         }
 
-        $result    = json_decode($response->getBody(), true);
-        $errorName = isset($result['name']) ? $result['name'] : 'Unknown_Exception';
-
-        throw new $this->errorMap[$errorName]($result['error'], $result['code']);
+        // If we can't detect a specific exception from MailChimp
+        // letting another plugin or Guzzle itself to handle it,
+        // i.e. letting this event to propagate further.
     }
 }
