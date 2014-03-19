@@ -20,8 +20,8 @@ namespace ZfrMailChimp\Client\Listener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Guzzle\Common\Event;
-use Guzzle\Http\Exception\BadResponseException;
 use Guzzle\Http\Message\Response;
+use ZfrMailChimp\Exception\ExceptionInterface;
 
 /**
  * Map MailChimp error codes to exceptions
@@ -141,7 +141,7 @@ class ErrorHandlerListener implements EventSubscriberInterface
      * @internal
      * @param  Event $event
      * @throws \RuntimeException
-     * @throws BadResponseException
+     * @throws ExceptionInterface
      * @return void
      */
     public function handleError(Event $event)
