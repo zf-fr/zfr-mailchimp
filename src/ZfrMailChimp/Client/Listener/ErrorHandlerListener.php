@@ -149,12 +149,8 @@ class ErrorHandlerListener implements EventSubscriberInterface
         /** @var Response $response */
         $response = $event['response'];
 
-        if (
-            // All MailChimp error responses have a body and non-200 HTTP code.
-               null !== $response
-            && 200  !== $response->getStatusCode()
-        ) {
-
+        // All MailChimp error responses have a body and non-200 HTTP code.
+        if (null !== $response && 200 !== $response->getStatusCode()) {
             // MailChimp body is in JSON, decoding it.
             $result = json_decode($response->getBody(), true);
             if (JSON_ERROR_NONE !== json_last_error() || !is_array($result)) {
