@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.3
+
+* Return in Error handler if no response is set (which happens in case of async calls)
+
 ## 2.0.2
 
 * Fix wrong parameter type for get list merge vars [#13](https://github.com/zf-fr/zfr-mailchimp/pull/13)

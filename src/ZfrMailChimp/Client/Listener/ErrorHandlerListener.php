@@ -141,8 +141,8 @@ class ErrorHandlerListener implements EventSubscriberInterface
     public function handleError(Event $event)
     {
         $response = $event['response'];
-        
-        if ($response->getStatusCode() === 200) {
+
+        if (null === $response || $response->getStatusCode() === 200) {
             return;
         }
 
