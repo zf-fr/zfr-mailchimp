@@ -49,8 +49,8 @@ use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
  * @method array addInterestGrouping(array $args = array()) {@command MailChimp AddInterestGrouping}
  * @method array addListMergeVar(array $args = array()) {@command MailChimp AddListMergeVar}
  * @method array addListSegment(array $args = array()) {@command MailChimp AddListSegment}
- * @method array addStaticListSegment(array $args = array()) {@command MailChimp AddStaticListSegment}
  * @method array addListWebhook(array $args = array()) {@command MailChimp AddListWebhook}
+ * @method array addStaticListSegment(array $args = array()) {@command MailChimp AddStaticListSegment}
  * @method array addStaticSegmentMembers(array $args = array()) {@command MailChimp AddStaticSegmentMembers}
  * @method array batchSubscribe(array $args = array()) {@command MailChimp BatchSubscribe}
  * @method array batchUnsubscribe(array $args = array()) {@command MailChimp BatchUnsubscribe}
