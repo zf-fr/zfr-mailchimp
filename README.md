@@ -149,6 +149,7 @@ LIST RELATED METHODS:
 * array addListMergeVar(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/merge-var-add.php)
 * array addListSegment(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/segment-add.php)
 * array addListWebhook(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/webhook-add.php)
+* array addStaticListSegment(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/static-segment-add.php)
 * array addStaticSegmentMembers(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/static-segment-members-add.php)
 * array batchSubscribe(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/batch-subscribe.php)
 * array batchUnsubscribe(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/batch-unsubscribe.php)
