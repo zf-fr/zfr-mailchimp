@@ -637,6 +637,34 @@ return array(
             )
         ),
 
+        'AddStaticListSegment' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/static-segment-add.json',
+            'summary'          => 'Save a static segment against a list',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-add.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'name' => array(
+                    'description' => 'Name for the new segment',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => false
+                )
+            )
+        ),
+
         'AddListWebhook' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/webhook-add.json',
