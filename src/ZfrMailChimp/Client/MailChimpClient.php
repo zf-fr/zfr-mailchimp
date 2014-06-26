@@ -59,6 +59,7 @@ use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
  * @method array deleteListMergeVar(array $args = array()) {@command MailChimp DeleteListMergeVar}
  * @method array deleteListSegment(array $args = array()) {@command MailChimp DeleteListSegment}
  * @method array deleteListWebhook(array $args = array()) {@command MailChimp DeleteListWebhook}
+ * @method array deleteStaticSegmentMembers(array $args = array()) {@command MailChimp DeleteStaticSegmentMembers}
  * @method array getAbuseReports(array $args = array()) {@command MailChimp GetAbuseReports}
  * @method array getInterestGroupings(array $args = array()) {@command MailChimp GetInterestGroupings}
  * @method array getListActivity(array $args = array()) {@command MailChimp GetListActivity}

@@ -971,6 +971,40 @@ return array(
                 )
             )
         ),
+        
+        'DeleteStaticSegmentMembers' => array(
+            'httpMethod'       => 'POST',
+            'uri'              => 'lists/static-segment-members-del.json',
+            'summary'          => 'Delete a members from list segment',
+            'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-members-del.php',
+            'parameters'       => array(
+                'api_key'  => array(
+                    'description' => 'MailChimp API key',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'sentAs'      => 'apikey',
+                    'required'    => true
+                ),
+                'id' => array(
+                    'description' => 'The list id to connect to',
+                    'location'    => 'json',
+                    'type'        => 'string',
+                    'required'    => true
+                ),
+                'seg_id' => array(
+                    'description' => 'The segment id to delete members from',
+                    'location'    => 'json',
+                    'type'        => 'integer',
+                    'required'    => true
+                ),
+                'batch' => array(
+                    'description' => 'Array of structs for each address',
+                    'location'    => 'json',
+                    'type'        => 'array',
+                    'required'    => true
+                ),
+            )
+        ),
 
         'GetAbuseReports' => array(
             'httpMethod'       => 'POST',

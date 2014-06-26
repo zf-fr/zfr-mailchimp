@@ -158,6 +158,7 @@ LIST RELATED METHODS:
 * array deleteListMergeVar(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/merge-var-del.php)
 * array deleteListSegment(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/segment-del.php)
 * array deleteListWebhook(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/webhook-del.php)
+* array deleteStaticSegmentMembers(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/static-segment-members-del.php)
 * array getAbuseReports(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/abuse-reports.php)
 * array getInterestGroupings(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/interest-groupings.php)
 * array getListActivity(array $args = array()) [doc](http://apidocs.mailchimp.com/api/2.0/lists/activity.php)
