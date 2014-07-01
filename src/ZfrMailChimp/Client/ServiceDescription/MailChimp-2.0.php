@@ -30,6 +30,7 @@ return [
         'CreateCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/create.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Create a new draft campaign to send',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/create.php',
             'parameters'       => [
@@ -77,6 +78,7 @@ return [
         'DeleteCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/delete.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete an existing campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/delete.php',
             'parameters'       => [
@@ -99,6 +101,7 @@ return [
         'GetCampaignContent' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/content.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get the content (both html and text) for a campaign either as it would appear in the campaign archive or as the raw, original content',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/content.php',
             'parameters'       => [
@@ -127,6 +130,7 @@ return [
         'GetCampaigns' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/list.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get the list of campaigns and their details matching the specified filters',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/list.php',
             'parameters'       => [
@@ -184,6 +188,7 @@ return [
         'GetTemplateContent' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/template-content.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get the HTML template content sections for a campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/template-content.php',
             'parameters'       => [
@@ -206,6 +211,7 @@ return [
         'PauseCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/pause.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Pause an AutoResponder or RSS campaign from sending',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/pause.php',
             'parameters'       => [
@@ -228,6 +234,7 @@ return [
         'ReplicateCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/replicate.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Replicate a campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/replicate.php',
             'parameters'       => [
@@ -250,6 +257,7 @@ return [
         'ResumeCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/resume.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Resume sending an AutoResponder or RSS campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/resume.php',
             'parameters'       => [
@@ -272,6 +280,7 @@ return [
         'ScheduleCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/schedule.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Schedule a campaign to be sent in the future',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/schedule.php',
             'parameters'       => [
@@ -306,6 +315,7 @@ return [
         'ScheduleBatchCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/schedule-batch.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Schedule a campaign to be sent in batches in the future. Only valid for regular campaigns',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/schedule-batch.php',
             'parameters'       => [
@@ -349,6 +359,7 @@ return [
         'SendCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/send.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Send a given campaign immediately. For RSS campaigns, this will "start" them.',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/send.php',
             'parameters'       => [
@@ -371,6 +382,7 @@ return [
         'SendTestCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/send-test.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Send a test campaign immediately. For RSS campaigns, this will "start" them.',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/send-test.php',
             'parameters'       => [
@@ -406,6 +418,7 @@ return [
         'TestSegmentation' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/segment-test.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Test segmentation rules before creating a campaign using them',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/segment-test.php',
             'parameters'       => [
@@ -434,6 +447,7 @@ return [
         'UnscheduleCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/unschedule.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Unschedule a campaign that is scheduled to be sent in the future',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/unschedule.php',
             'parameters'       => [
@@ -456,6 +470,7 @@ return [
         'UpdateCampaign' => [
             'httpMethod'       => 'POST',
             'uri'              => 'campaigns/update.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Update just about any setting besides type for a campaign that has not been sent (there are a few caveats for this method, please refer to the official documentation)',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/campaigns/update.php',
             'parameters'       => [
@@ -497,6 +512,7 @@ return [
         'AddInterestGroup' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/interest-group-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Add a single Interest Group',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-group-add.php',
             'parameters'       => [
@@ -531,6 +547,7 @@ return [
         'AddInterestGrouping' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/interest-grouping-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Add a new Interest Grouping',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-grouping-add.php',
             'parameters'       => [
@@ -571,6 +588,7 @@ return [
         'AddListMergeVar' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/merge-var-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Add a new merge var to a list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-add.php',
             'parameters'       => [
@@ -612,6 +630,7 @@ return [
         'AddListSegment' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/segment-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Save a segment against a list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-add.php',
             'parameters'       => [
@@ -640,6 +659,7 @@ return [
         'AddListWebhook' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/webhook-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Add a new webhook URL to the given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhook-add.php',
             'parameters'       => [
@@ -680,6 +700,7 @@ return [
         'AddStaticListSegment' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/static-segment-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Save a static segment against a list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-add.php',
             'parameters'       => [
@@ -704,10 +725,11 @@ return [
                 ]
             ]
         ],
-        
+
         'AddStaticSegmentMembers' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/static-segment-members-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Add list members to a static segment.',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-members-add.php',
             'parameters'       => [
@@ -742,6 +764,7 @@ return [
         'BatchSubscribe' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/batch-subscribe.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Subscribe a batch of email addresses to a list at once',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/batch-subscribe.php',
             'parameters'       => [
@@ -788,6 +811,7 @@ return [
         'BatchUnsubscribe' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/batch-unsubscribe.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Unsubscribe a batch of email addresses to a list at once',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/batch-unsubscribe.php',
             'parameters'       => [
@@ -834,6 +858,7 @@ return [
         'DeleteInterestGroup' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/interest-group-del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete a single Interest Group',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-group-del.php',
             'parameters'       => [
@@ -868,6 +893,7 @@ return [
         'DeleteInterestGrouping' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/interest-grouping-del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete a single Interest Grouping',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-grouping-del.php',
             'parameters'       => [
@@ -890,6 +916,7 @@ return [
         'DeleteListMergeVar' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/merge-var-del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete an existing merge var to a list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-del.php',
             'parameters'       => [
@@ -919,6 +946,7 @@ return [
         'DeleteListSegment' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/segment-del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete a list segment',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-del.php',
             'parameters'       => [
@@ -947,6 +975,7 @@ return [
         'DeleteListWebhook' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/webhook-del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete an existing webhook URL from the given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhook-del.php',
             'parameters'       => [
@@ -971,10 +1000,11 @@ return [
                 ]
             ]
         ],
-        
+
         'DeleteStaticSegmentMembers' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/static-segment-members-del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete a members from list segment',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-members-del.php',
             'parameters'       => [
@@ -1009,6 +1039,7 @@ return [
         'GetAbuseReports' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/abuse-reports.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all email addresses that complained about a campaign sent to a list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/abuse-reports.php',
             'parameters'       => [
@@ -1046,6 +1077,7 @@ return [
         'GetInterestGroupings' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/interest-groupings.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get the interest groupings',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-groupings.php',
             'parameters'       => [
@@ -1074,6 +1106,7 @@ return [
         'GetListActivity' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/activity.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Access up to the previous 180 days of daily detailed aggregated activity stats for a given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/activity.php',
             'parameters'       => [
@@ -1096,6 +1129,7 @@ return [
         'GetListClients' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/clients.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the clients that the list\'s subscribers have been tagged as being used based on user agents seen',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/clients.php',
             'parameters'       => [
@@ -1118,6 +1152,7 @@ return [
         'GetListGrowthHistory' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/growth-history.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Access the growth history by month for a given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/growth-history.php',
             'parameters'       => [
@@ -1140,6 +1175,7 @@ return [
         'GetListMergeVars' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/merge-vars.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get the list of merge tags for a given list, including their name, tag, and required setting',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-vars.php',
             'parameters'       => [
@@ -1162,6 +1198,7 @@ return [
         'GetLists' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/list.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve all of the lists defined for your user account',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/list.php',
             'parameters'       => [
@@ -1213,6 +1250,7 @@ return [
         'GetListLocations' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/locations.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the locations (countries) that the list\'s subscribers have been tagged to based on geocoding their IP address',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/locations.php',
             'parameters'       => [
@@ -1235,6 +1273,7 @@ return [
         'GetListMembers' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/members.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all of the list members for a list that are of a particular status and potentially matching a segment. This will cause locking, so don\'t run multiples at once.',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/members.php',
             'parameters'       => [
@@ -1270,6 +1309,7 @@ return [
         'GetListMembersActivity' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/member-activity.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get the most recent 100 activities for particular list members (open, click, bounce, unsub, abuse, sent to, etc.)',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/member-activity.php',
             'parameters'       => [
@@ -1299,6 +1339,7 @@ return [
         'GetListMembersInfo' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/member-info.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all the information for particular members of a list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/member-info.php',
             'parameters'       => [
@@ -1328,6 +1369,7 @@ return [
         'GetListSegments' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/segments.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all the segments for a given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segments.php',
             'parameters'       => [
@@ -1357,6 +1399,7 @@ return [
         'GetListStaticSegments' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/static-segments.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all the static segments for a given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segments.php',
             'parameters'       => [
@@ -1379,6 +1422,7 @@ return [
         'GetListWebhooks' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/webhooks.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all the webhooks URL for the given list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/webhooks.php',
             'parameters'       => [
@@ -1401,6 +1445,7 @@ return [
         'ResetListMergeVar' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/merge-var-reset.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Completely resets all data stored in a merge var on a list. All data is removed and this action can not be undone.',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-reset.php',
             'parameters'       => [
@@ -1430,6 +1475,7 @@ return [
         'ResetStaticSegment' => [
             'httpMethod'        => 'POST',
             'uri'               => 'lists/static-segment-reset.json',
+            'responseModel'    => 'GetResponse',
             'summary'           => 'Resets a static segment - removes all members from the static segment. Note: does not actually affect list member data',
             'documentationUrl'  => 'http://apidocs.mailchimp.com/api/2.0/lists/static-segment-reset.php',
             'parameters'        => [
@@ -1458,6 +1504,7 @@ return [
         'SetListMergeVar' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/merge-var-set.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Sets a particular merge var to the specified value for every list member. Only merge var ids 1 - 30 may be modified this way',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/merge-var-set.php',
             'parameters'       => [
@@ -1493,6 +1540,7 @@ return [
         'Subscribe' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/subscribe.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Subscribe the given email address to the list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php',
             'parameters'       => [
@@ -1558,6 +1606,7 @@ return [
         'TestListSegment' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/segment-test.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Allow to test segmentation rules before creating a campaign using them',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-test.php',
             'parameters'       => [
@@ -1586,6 +1635,7 @@ return [
         'Unsubscribe' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/unsubscribe.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Unsubscribe the given email address from the list',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/unsubscribe.php',
             'parameters'       => [
@@ -1632,6 +1682,7 @@ return [
         'UpdateInterestGroup' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/interest-group-update.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Update a single Interest Group',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-group-update.php',
             'parameters'       => [
@@ -1672,6 +1723,7 @@ return [
         'UpdateInterestGrouping' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/interest-grouping-update.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Update a single Interest Grouping',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/interest-grouping-update.php',
             'parameters'       => [
@@ -1707,6 +1759,7 @@ return [
         'UpdateListMember' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/update-member.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Edit the email address, merge fields, and interest groups for a list member',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/update-member.php',
             'parameters'       => [
@@ -1754,6 +1807,7 @@ return [
         'UpdateListSegment' => [
             'httpMethod'       => 'POST',
             'uri'              => 'lists/segment-update.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Update an existing segment (the list and type can not be changed)',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/lists/segment-update.php',
             'parameters'       => [
@@ -1794,6 +1848,7 @@ return [
         'AddOrder' => [
             'httpMethod'       => 'POST',
             'uri'              => 'ecomm/order-add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Import Ecommerce Order Information to be used for Segmentation',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/ecomm/order-add.php',
             'parameters'       => [
@@ -1816,6 +1871,7 @@ return [
         'DeleteOrder' => [
             'httpMethod'       => 'POST',
             'uri'              => 'ecomm/order-del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete Ecommerce Order Information used for Segmentation',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/ecomm/order-del.php',
             'parameters'       => [
@@ -1844,6 +1900,7 @@ return [
         'GetOrders' => [
             'httpMethod'       => 'POST',
             'uri'              => 'ecomm/orders.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get Ecommerce Orders Information used for Segmentation',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/ecomm/orders.php',
             'parameters'       => [
@@ -1893,6 +1950,7 @@ return [
         'AddFolder' => [
             'httpMethod'       => 'POST',
             'uri'              => 'folders/add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Add a new folder to file campaigns, autoresponders, or templates',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/add.php',
             'parameters'       => [
@@ -1922,6 +1980,7 @@ return [
         'DeleteFolder' => [
             'httpMethod'       => 'POST',
             'uri'              => 'folders/del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete a campaign, autoresponder, or template folder',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/del.php',
             'parameters'       => [
@@ -1951,6 +2010,7 @@ return [
         'GetFolders' => [
             'httpMethod'       => 'POST',
             'uri'              => 'folders/list.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all the folders of a certain type',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/list.php',
             'parameters'       => [
@@ -1974,6 +2034,7 @@ return [
         'UpdateFolder' => [
             'httpMethod'       => 'POST',
             'uri'              => 'folders/update.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Update a single folder of a certain type',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/folders/update.php',
             'parameters'       => [
@@ -2015,6 +2076,7 @@ return [
         'AddTemplate' => [
             'httpMethod'       => 'POST',
             'uri'              => 'templates/add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Create a new user template, NOT campaign content. These templates can then be applied while creating campaigns',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/add.php',
             'parameters'       => [
@@ -2049,6 +2111,7 @@ return [
         'DeleteTemplate' => [
             'httpMethod'       => 'POST',
             'uri'              => 'templates/del.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete (deactivate) a user template',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/del.php',
             'parameters'       => [
@@ -2071,6 +2134,7 @@ return [
         'GetTemplateInfo' => [
             'httpMethod'       => 'POST',
             'uri'              => 'templates/info.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get details for a specific template to help support editing',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/info.php',
             'parameters'       => [
@@ -2100,6 +2164,7 @@ return [
         'GetTemplates' => [
             'httpMethod'       => 'POST',
             'uri'              => 'templates/list.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve various templates available in the system',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/list.php',
             'parameters'       => [
@@ -2128,6 +2193,7 @@ return [
         'UndeleteTemplate' => [
             'httpMethod'       => 'POST',
             'uri'              => 'templates/undel.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Undelete (reactivate) a user template',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/undel.php',
             'parameters'       => [
@@ -2150,6 +2216,7 @@ return [
         'UpdateTemplate' => [
             'httpMethod'       => 'POST',
             'uri'              => 'templates/update.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Replace the content of a user template, NOT campaign content',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/templates/update.php',
             'parameters'       => [
@@ -2184,6 +2251,7 @@ return [
         'GetCampaignAbuseReport' => [
             'httpMethod'       => 'POST',
             'uri'              => 'reports/abuse.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get all email addresses that complained about a given campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/abuse.php',
             'parameters'       => [
@@ -2212,6 +2280,7 @@ return [
         'GetCampaignAdviceReport' => [
             'httpMethod'       => 'POST',
             'uri'              => 'reports/advice.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the text presented in MailChimp app for how a campaign performed and any advice they may have for you',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/advice.php',
             'parameters'       => [
@@ -2234,6 +2303,7 @@ return [
         'GetCampaignBounceMessage' => [
             'httpMethod'       => 'POST',
             'uri'              => 'reports/bounce-message.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the most recent full bounce message for a specific email address on the given campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/bounce-message.php',
             'parameters'       => [
@@ -2262,6 +2332,7 @@ return [
         'GetCampaignBounceMessages' => [
             'httpMethod'       => 'POST',
             'uri'              => 'reports/bounce-messages.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the bounce messages for a given campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/bounce-messages.php',
             'parameters'       => [
@@ -2290,6 +2361,7 @@ return [
         'GetCampaignSummaryReport' => [
             'httpMethod'       => 'POST',
             'uri'              => 'reports/summary.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve aggregate campaign statistics (opens, bounces, clicks...)',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/summary.php',
             'parameters'       => [
@@ -2312,6 +2384,7 @@ return [
         'GetCampaignGoogleAnalyticsReport' => [
             'httpMethod'       => 'POST',
             'uri'              => 'reports/google-analytics.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the Google Analytics data for this campaign',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/reports/google-analytics.php',
             'parameters'       => [
@@ -2340,6 +2413,7 @@ return [
         'InviteUser' => [
             'httpMethod'       => 'POST',
             'uri'              => 'users/invite.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Invite a user to your account',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invite.php',
             'parameters'       => [
@@ -2375,6 +2449,7 @@ return [
         'GetInvitations' => [
             'httpMethod'       => 'POST',
             'uri'              => 'users/invites.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the list of pending users invitations have been sent for',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invites.php',
             'parameters'       => [
@@ -2391,6 +2466,7 @@ return [
         'GetLogins' => [
             'httpMethod'       => 'POST',
             'uri'              => 'users/logins.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the list of active logins',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/logins.php',
             'parameters'       => [
@@ -2407,6 +2483,7 @@ return [
         'GetProfile' => [
             'httpMethod'       => 'POST',
             'uri'              => 'users/profile.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve the profile for the login owning the provided API Key',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/profile.php',
             'parameters'       => [
@@ -2423,6 +2500,7 @@ return [
         'ReinviteUser' => [
             'httpMethod'       => 'POST',
             'uri'              => 'users/invite-resend.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Reinvite a user to your account',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invite-resend.php',
             'parameters'       => [
@@ -2445,6 +2523,7 @@ return [
         'RevokeLogin' => [
             'httpMethod'       => 'POST',
             'uri'              => 'users/login-revoke.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Revoke access for a specified user',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/login-revoke.php',
             'parameters'       => [
@@ -2467,6 +2546,7 @@ return [
         'RevokeUserInvitation' => [
             'httpMethod'       => 'POST',
             'uri'              => 'users/invite-revoke.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Revoke an invitation that was sent to a user',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/users/invite-revoke.php',
             'parameters'       => [
@@ -2495,6 +2575,7 @@ return [
         'AddVipMembers' => [
             'httpMethod'       => 'POST',
             'uri'              => 'vip/add.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Add VIPs',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/add.php',
             'parameters'       => [
@@ -2524,6 +2605,7 @@ return [
         'DeleteVipMembers' => [
             'httpMethod'       => 'POST',
             'uri'              => 'vip/delete.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Delete VIPs',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/del.php',
             'parameters'       => [
@@ -2553,6 +2635,7 @@ return [
         'GetVipMembers' => [
             'httpMethod'       => 'POST',
             'uri'              => 'vip/activity.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve all VIPs for an account',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/members.php',
             'parameters'       => [
@@ -2569,6 +2652,7 @@ return [
         'GetVipActivity' => [
             'httpMethod'       => 'POST',
             'uri'              => 'vip/activity.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve all Activity (opens/clicks) for VIPs over the past 10 days',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/activity.php',
             'parameters'       => [
@@ -2591,6 +2675,7 @@ return [
         'GetGalleryImages' => [
             'httpMethod'       => 'POST',
             'uri'              => 'gallery/list.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Get a list of gallery images, optionally filtered by criterias',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/gallery/list.php',
             'parameters'       => [
@@ -2619,6 +2704,7 @@ return [
         'GetAccountDetails' => [
             'httpMethod'       => 'POST',
             'uri'              => 'helper/account-details.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Retrieve lots of account information including payments made, plan info, some account stats, installed modules, contact info, and more. No private information like credit card numbers is available',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/helper/account-details.php',
             'parameters'       => [
@@ -2648,6 +2734,7 @@ return [
         'Ping' => [
             'httpMethod'       => 'POST',
             'uri'              => 'helper/ping.json',
+            'responseModel'    => 'GetResponse',
             'summary'          => 'Ping the MailChimp API',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/helper/ping.php',
             'parameters'       => [
@@ -2661,4 +2748,12 @@ return [
             ]
         ]
     ],
+    'models' => [
+        'GetResponse' => [
+            'type'                 => 'object',
+            'additionalProperties' => [
+                'location' => 'json'
+            ]
+        ]
+    ]
 ];

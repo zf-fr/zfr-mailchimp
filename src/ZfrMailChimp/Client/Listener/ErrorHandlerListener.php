@@ -18,7 +18,7 @@
 
 namespace ZfrMailChimp\Client\Listener;
 
-use GuzzleHttp\Event\ErrorEvent;
+use GuzzleHttp\Command\Event\CommandErrorEvent;
 use GuzzleHttp\Event\SubscriberInterface;
 
 /**
@@ -129,18 +129,18 @@ class ErrorHandlerListener implements SubscriberInterface
      */
     public function getEvents()
     {
-        return ['error' => [$this, 'handleError']];
+        return ['error' => ['handleError']];
     }
 
     /**
      * @internal
-     * @param  ErrorEvent $errorEvent
+     * @param  CommandErrorEvent $errorEvent
      * @return void
      * @throws \ZfrMailChimp\Exception\ExceptionInterface
      */
-    public function handleError(ErrorEvent $errorEvent)
+    public function handleError(CommandErrorEvent $errorEvent)
     {
-        $response = $errorEvent->getResponse();
+        $response = $errorEvent->getRequestErrorEvent()->getResponse();
 
         if (null === $response || $response->getStatusCode() === 200) {
             return;
