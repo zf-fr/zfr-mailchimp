@@ -34,7 +34,7 @@ class ErrorHandlerListener implements EventSubscriberInterface
      *
      * @var array
      */
-    private $errorMap = array(
+    private $errorMap = [
         'Absplit_UnknownError'            => 'ZfrMailChimp\Exception\Absplit\UnknownErrorException',
         'Absplit_UnknownSplitTest'        => 'ZfrMailChimp\Exception\Absplit\UnknownSplitTestException',
         'Absplit_UnknownTestType'         => 'ZfrMailChimp\Exception\Absplit\UnknownTestTypeException',
@@ -122,14 +122,14 @@ class ErrorHandlerListener implements EventSubscriberInterface
         'XML_RPC2_Exception'              => 'ZfrMailChimp\Exception\XmlRpc2Exception',
         'XML_RPC2_FaultException'         => 'ZfrMailChimp\Exception\XmlRpc2Exception',
         'Zend_Uri_Exception'              => 'ZfrMailChimp\Exception\ZendUriException',
-    );
+    ];
 
     /**
      * {@inheritDoc}
      */
     public static function getSubscribedEvents()
     {
-        return array('request.exception' => 'handleError');
+        return ['request.exception' => 'handleError'];
     }
 
     /**

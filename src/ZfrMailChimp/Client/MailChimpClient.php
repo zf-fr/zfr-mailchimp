@@ -159,11 +159,11 @@ class MailChimpClient extends Client
     public function __construct($apiKey, $version = self::LATEST_API_VERSION)
     {
         // Make sure we always have the app_id parameter as default
-        parent::__construct('', array(
-            'command.params' => array(
+        parent::__construct('', [
+            'command.params' => [
                 'api_key' => $apiKey
-            )
-        ));
+            ]
+        ]);
 
         $this->setDescription(ServiceDescription::factory(sprintf(
             __DIR__ . '/ServiceDescription/MailChimp-%s.php',
@@ -183,7 +183,7 @@ class MailChimpClient extends Client
     /**
      * {@inheritdoc}
      */
-    public function __call($method, $args = array())
+    public function __call($method, $args = [])
     {
         return parent::__call(ucfirst($method), $args);
     }
