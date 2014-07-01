@@ -176,7 +176,7 @@ class MailChimpClient extends GuzzleClient
         // Make sure we always have the api_key parameter as default
         parent::__construct($httpClient, $description, ['defaults' => ['api_key' => $apiKey]]);
 
-        $httpClient->getEmitter()->attach(new ErrorHandlerListener());
+        $this->getEmitter()->attach(new ErrorHandlerListener());
     }
 
     /**
