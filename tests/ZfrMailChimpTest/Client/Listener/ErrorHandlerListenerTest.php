@@ -18,7 +18,6 @@
 
 namespace ZfrMailChimpTest\Client\Listener;
 
-use Guzzle\Common\Event;
 use PHPUnit_Framework_TestCase;
 use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
 
@@ -31,15 +30,12 @@ class ErrorHandlerListenerTest extends PHPUnit_Framework_TestCase
     public function testReturnsNothingIfStatusCodeIs200()
     {
         $errorHandler = new ErrorHandlerListener();
-        $event        = new Event();
+        $event        = $this->getMock('GuzzleHttp\Event\ErrorEvent', [], [], '', false);
 
-        $response = $this->getMock('Guzzle\Http\Message\Response', [], [], '', false);
-        $command  = $this->getMock('Guzzle\Service\Command\CommandInterface');
+        $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
 
-        $command->expects($this->once())->method('getResponse')->will($this->returnValue($response));
+        $event->expects($this->once())->method('getResponse')->will($this->returnValue($response));
         $response->expects($this->once())->method('getStatusCode')->will($this->returnValue(200));
-
-        $event['command'] = $command;
 
         $this->assertNull($errorHandler->handleError($event));
     }
@@ -143,10 +139,9 @@ class ErrorHandlerListenerTest extends PHPUnit_Framework_TestCase
     public function testCanCreateErrors($errorName)
     {
         $errorHandler = new ErrorHandlerListener();
-        $event        = new Event();
+        $event        = $this->getMock('GuzzleHttp\Event\ErrorEvent', [], [], '', false);
 
-        $response = $this->getMock('Guzzle\Http\Message\Response', [], [], '', false);
-        $command  = $this->getMock('Guzzle\Service\Command\CommandInterface');
+        $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
 
         $responseData = [
             'name'  => $errorName,
@@ -154,14 +149,12 @@ class ErrorHandlerListenerTest extends PHPUnit_Framework_TestCase
             'error' => 'Error message' // dummy error message just for test
         ];
 
-        $command->expects($this->once())->method('getResponse')->will($this->returnValue($response));
-        $command->expects($this->once())->method('toArray')->will($this->returnValue($responseData));
+        $event->expects($this->once())->method('getResponse')->will($this->returnValue($response));
+        $response->expects($this->once())->method('json')->will($this->returnValue($responseData));
         $response->expects($this->once())->method('getStatusCode')->will($this->returnValue(400));
-
-        $event['command'] = $command;
 
         $this->setExpectedException('ZfrMailChimp\Exception\ExceptionInterface', $responseData['error'], $responseData['code']);
 
         $errorHandler->handleError($event);
     }
-} 
+}

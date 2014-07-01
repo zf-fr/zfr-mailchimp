@@ -129,7 +129,7 @@ class ErrorHandlerListener implements SubscriberInterface
      */
     public function getEvents()
     {
-        return ['request.error' => [$this, 'handleError']];
+        return ['error' => [$this, 'handleError']];
     }
 
     /**
@@ -146,7 +146,7 @@ class ErrorHandlerListener implements SubscriberInterface
             return;
         }
 
-        $result    = json_decode($response->getBody(), true);
+        $result    = $response->json();
         $errorName = isset($result['name']) ? $result['name'] : 'Unknown_Exception';
 
         throw new $this->errorMap[$errorName]($result['error'], $result['code']);
