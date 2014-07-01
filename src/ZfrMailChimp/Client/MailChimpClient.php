@@ -170,10 +170,8 @@ class MailChimpClient extends GuzzleClient
             ]
         ]);
 
-        $description = new Description(sprintf(
-            __DIR__ . '/ServiceDescription/MailChimp-%s.php',
-            $version
-        ));
+        $file        = sprintf(__DIR__ . '/ServiceDescription/MailChimp-%s.php', $version);
+        $description = new Description(include_once $file);
 
         // Make sure we always have the api_key parameter as default
         parent::__construct($httpClient, $description, ['defaults' => ['api_key' => $apiKey]]);

@@ -129,7 +129,7 @@ class ErrorHandlerListener implements SubscriberInterface
      */
     public function getEvents()
     {
-        return ['error' => [$this, 'handleError']];
+        return ['error' => ['handleError']];
     }
 
     /**
