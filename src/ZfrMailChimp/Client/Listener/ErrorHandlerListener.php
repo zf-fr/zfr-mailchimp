@@ -18,8 +18,8 @@
 
 namespace ZfrMailChimp\Client\Listener;
 
-use Guzzle\Common\Event;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use GuzzleHttp\Event\ErrorEvent;
+use GuzzleHttp\Event\SubscriberInterface;
 
 /**
  * Map MailChimp error codes to exceptions
@@ -27,7 +27,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class ErrorHandlerListener implements EventSubscriberInterface
+class ErrorHandlerListener implements SubscriberInterface
 {
     /**
      * List of MailChimp error codes, that map to a ZfrMailChimp exception
@@ -127,20 +127,20 @@ class ErrorHandlerListener implements EventSubscriberInterface
     /**
      * {@inheritDoc}
      */
-    public static function getSubscribedEvents()
+    public function getEvents()
     {
-        return ['request.exception' => 'handleError'];
+        return ['request.error' => [$this, 'handleError']];
     }
 
     /**
      * @internal
-     * @param  Event $event
+     * @param  ErrorEvent $errorEvent
      * @return void
      * @throws \ZfrMailChimp\Exception\ExceptionInterface
      */
-    public function handleError(Event $event)
+    public function handleError(ErrorEvent $errorEvent)
     {
-        $response = $event['response'];
+        $response = $errorEvent->getResponse();
 
         if (null === $response || $response->getStatusCode() === 200) {
             return;
