@@ -1,11 +1,5 @@
 # CHANGELOG
 
-## 3.0.0
-
-* [BC] ZfrMailChimp has been updated to use Guzzle 4. If offers up to 30% faster performance. Normally, you should
-not encounter any change to your code, but please test carefully!
-* [BC] Because of this change, ZfrMailChimp now requires PHP 5.4
-
 ## 2.0.3
 
 * Return in Error handler if no response is set (which happens in case of async calls)
