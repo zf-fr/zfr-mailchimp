@@ -18,8 +18,8 @@
 
 namespace ZfrMailChimp\Client\Listener;
 
-use GuzzleHttp\Event\ErrorEvent;
-use GuzzleHttp\Event\SubscriberInterface;
+use Guzzle\Common\Event;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
  * Map MailChimp error codes to exceptions
@@ -27,14 +27,14 @@ use GuzzleHttp\Event\SubscriberInterface;
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class ErrorHandlerListener implements SubscriberInterface
+class ErrorHandlerListener implements EventSubscriberInterface
 {
     /**
      * List of MailChimp error codes, that map to a ZfrMailChimp exception
      *
      * @var array
      */
-    private $errorMap = [
+    private $errorMap = array(
         'Absplit_UnknownError'            => 'ZfrMailChimp\Exception\Absplit\UnknownErrorException',
         'Absplit_UnknownSplitTest'        => 'ZfrMailChimp\Exception\Absplit\UnknownSplitTestException',
         'Absplit_UnknownTestType'         => 'ZfrMailChimp\Exception\Absplit\UnknownTestTypeException',
@@ -122,31 +122,31 @@ class ErrorHandlerListener implements SubscriberInterface
         'XML_RPC2_Exception'              => 'ZfrMailChimp\Exception\XmlRpc2Exception',
         'XML_RPC2_FaultException'         => 'ZfrMailChimp\Exception\XmlRpc2Exception',
         'Zend_Uri_Exception'              => 'ZfrMailChimp\Exception\ZendUriException',
-    ];
+    );
 
     /**
      * {@inheritDoc}
      */
-    public function getEvents()
+    public static function getSubscribedEvents()
     {
-        return ['error' => [$this, 'handleError']];
+        return array('request.exception' => 'handleError');
     }
 
     /**
      * @internal
-     * @param  ErrorEvent $errorEvent
+     * @param  Event $event
      * @return void
      * @throws \ZfrMailChimp\Exception\ExceptionInterface
      */
-    public function handleError(ErrorEvent $errorEvent)
+    public function handleError(Event $event)
     {
-        $response = $errorEvent->getResponse();
+        $response = $event['response'];
 
         if (null === $response || $response->getStatusCode() === 200) {
             return;
         }
 
-        $result    = $response->json();
+        $result    = json_decode($response->getBody(), true);
         $errorName = isset($result['name']) ? $result['name'] : 'Unknown_Exception';
 
         throw new $this->errorMap[$errorName]($result['error'], $result['code']);

@@ -18,9 +18,8 @@
 
 namespace ZfrMailChimp\Client;
 
-use GuzzleHttp\Client as HttpClient;
-use GuzzleHttp\Command\Guzzle\GuzzleClient;
-use GuzzleHttp\Command\Guzzle\Description;
+use Guzzle\Service\Client;
+use Guzzle\Service\Description\ServiceDescription;
 use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
 
 /**
@@ -146,7 +145,7 @@ use ZfrMailChimp\Client\Listener\ErrorHandlerListener;
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class MailChimpClient extends GuzzleClient
+class MailChimpClient extends Client
 {
     /**
      * MailChimp API version
@@ -159,34 +158,34 @@ class MailChimpClient extends GuzzleClient
      */
     public function __construct($apiKey, $version = self::LATEST_API_VERSION)
     {
-        // The base URL depends on the API key
-        $parts      = explode('-', $apiKey);
-        $httpClient = new HttpClient([
-            'base_url' => sprintf('https://%s.api.mailchimp.com/%s', end($parts), $version),
-            'defaults' => [
-                'headers' => [
-                    'User-Agent' => 'Zfr-MailChimp-PHP'
-                ]
-            ]
-        ]);
-
-        $description = new Description(sprintf(
-            __DIR__ . '/ServiceDescription/MailChimp-%s.php',
-            $version
+        // Make sure we always have the app_id parameter as default
+        parent::__construct('', array(
+            'command.params' => array(
+                'api_key' => $apiKey
+            )
         ));
 
-        // Make sure we always have the api_key parameter as default
-        parent::__construct($httpClient, $description, ['defaults' => ['api_key' => $apiKey]]);
+        $this->setDescription(ServiceDescription::factory(sprintf(
+            __DIR__ . '/ServiceDescription/MailChimp-%s.php',
+            $version
+        )));
 
-        $httpClient->getEmitter()->attach(new ErrorHandlerListener());
+        // Prefix the User-Agent by SDK version
+        $this->setUserAgent('zfr-mailchimp-php', true);
+
+        // The base URL depends on the API key
+        $parts = explode('-', $apiKey);
+        $this->setBaseUrl(sprintf('https://%s.api.mailchimp.com/%s', end($parts), $version));
+
+        $this->getEventDispatcher()->addSubscriber(new ErrorHandlerListener());
     }
 
     /**
      * {@inheritdoc}
      */
-    public function __call($method, array $arguments = [])
+    public function __call($method, $args = array())
     {
-        return parent::__call(ucfirst($method), $arguments);
+        return parent::__call(ucfirst($method), $args);
     }
 
     /**
@@ -196,6 +195,6 @@ class MailChimpClient extends GuzzleClient
      */
     public function getApiVersion()
     {
-        return $this->getDescription()->getApiVersion();
+        return $this->serviceDescription->getApiVersion();
     }
 }
