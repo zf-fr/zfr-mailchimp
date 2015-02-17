@@ -112,7 +112,7 @@ try {
     $message = $e->getMessage();
 
     // You can do something interesting here!
-} catch(\ZfrMailChimp\Exception\Ls\DoesNotExist $e) {
+} catch(\ZfrMailChimp\Exception\Ls\DoesNotExistException $e) {
     // Do something else useful!
 }
 catch (\ZfrMailChimp\Exception\ExceptionInterface $e) {
