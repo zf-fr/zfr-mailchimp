@@ -245,6 +245,8 @@ HELPER RELATED METHODS:
 
 ### Attaching Guzzle plugins
 
+> UPDATE: Async plugin Guzzle 3 has been known to be very strange, and often not work as expected. Actually, it has even been removed in Guzzle 5. I'd suggest you to trying manually the Async plugin, but I recommand you NOT to use it.
+
 Because ZfrMailChimp is built on top of Guzzle, you can take advantage of all the nice features of it. For instance,
 let's say you want to send requests asynchronously, you can simply attach the built-in Async plugin:
 
