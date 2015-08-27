@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 2.0.6
+
+* Use unknown error exception if an exception contains an unknown error code, instead of crashing
+
+## 2.0.5
+
+* Add missing `deleteStaticSegmentMembers` method.
+* 
+## 2.0.4
+
+* Add `addStaticListSegment` method
+
 ## 2.0.3
 
 * Return in Error handler if no response is set (which happens in case of async calls)
