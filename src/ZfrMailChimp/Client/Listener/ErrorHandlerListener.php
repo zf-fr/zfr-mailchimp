@@ -147,7 +147,7 @@ class ErrorHandlerListener implements EventSubscriberInterface
         }
 
         $result    = json_decode($response->getBody(), true);
-        $errorName = isset($result['name']) ? $result['name'] : 'Unknown_Exception';
+        $errorName = isset($result['name']) && array_key_exists($result['name'], $this->errorMap) ? $result['name'] : 'Unknown_Exception';
 
         throw new $this->errorMap[$errorName]($result['error'], $result['code']);
     }
