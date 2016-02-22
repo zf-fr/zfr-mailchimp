@@ -2,6 +2,8 @@
 
 [![Latest Stable Version](https://poser.pugx.org/zfr/zfr-mailchimp/v/stable.png)](https://packagist.org/packages/zfr/zfr-mailchimp)
 
+> IMPORTANT: MailChimp has announced the removal of old API (including v1 and v2) in their [blog post](http://devs.mailchimp.com/blog/sunsetting-previous-mailchimp-api-versions/). Because this library is based on v2, it will stop working at the end of the year. I don't have the time to update this library to the v3 as today, but if anyone would like to tackle it... do not hesitate!
+
 > Note : this library does not contain tests, mainly because I'm not sure about how to write tests for an API
 wrapper. Don't hesitate to help on this ;-).
 
