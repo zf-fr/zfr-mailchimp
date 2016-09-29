@@ -76,7 +76,7 @@ $client->addFolder(array(
 ### How to use it ?
 
 You will notice that the method names below does not always have a 1-to-1 mapping with the API names. For instance,
-most method that imply retrieving something are prefixed by "get".
+most methods that imply retrieving something are prefixed by "get".
 
 However, there is an exact mapping for parameters. Therefore, you just need to refer to the official documentation
 for a given method (links are given below). Here is an example with the [subscribe](http://apidocs.mailchimp.com/api/2.0/lists/subscribe.php) method:
@@ -247,7 +247,7 @@ HELPER RELATED METHODS:
 
 ### Attaching Guzzle plugins
 
-> UPDATE: Async plugin Guzzle 3 has been known to be very strange, and often not work as expected. Actually, it has even been removed in Guzzle 5. I'd suggest you to trying manually the Async plugin, but I recommand you NOT to use it.
+> UPDATE: Async plugin Guzzle 3 has been known to be very strange, and often not work as expected. Actually, it has even been removed in Guzzle 5. I'd suggest you to trying manually the Async plugin, but I recommend you NOT to use it.
 
 Because ZfrMailChimp is built on top of Guzzle, you can take advantage of all the nice features of it. For instance,
 let's say you want to send requests asynchronously, you can simply attach the built-in Async plugin:
