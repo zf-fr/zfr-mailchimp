@@ -704,7 +704,7 @@ return array(
                 )
             )
         ),
-        
+
         'AddStaticSegmentMembers' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/static-segment-members-add.json',
@@ -971,7 +971,7 @@ return array(
                 )
             )
         ),
-        
+
         'DeleteStaticSegmentMembers' => array(
             'httpMethod'       => 'POST',
             'uri'              => 'lists/static-segment-members-del.json',
@@ -2523,7 +2523,7 @@ return array(
 
         'DeleteVipMembers' => array(
             'httpMethod'       => 'POST',
-            'uri'              => 'vip/delete.json',
+            'uri'              => 'vip/del.json',
             'summary'          => 'Delete VIPs',
             'documentationUrl' => 'http://apidocs.mailchimp.com/api/2.0/vip/del.php',
             'parameters'       => array(
